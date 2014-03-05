@@ -38,6 +38,7 @@ menu_dict = dict()
 # Set menu_dict equal to a dictionary containing menu options and their prices
 menu_dict = {'large cheese pizza': 10.50, 'large cheese stuffed crust pizza': 13.50, 'large meat lovers stuffed crust pizza': 15.50}
 
+# Use menu_response as an empty array that the if statment will later push responses
 menu_response = []
 
 if group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza'] and group_amount >= menu_dict['large meat lovers stuffed crust pizza']:
