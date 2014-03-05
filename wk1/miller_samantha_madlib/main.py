@@ -11,7 +11,12 @@ second_friend = raw_input('Please enter the second friends name: ')
 # Asking third friend to input their name
 third_friend = raw_input('Please enter the third friends name: ')
 
+# friend_array holds the names of the people attending the pizza place together
 friend_array = [first_friend, second_friend, third_friend]
+
+# Loops through friend_array and prints which friends are going to the pizza place
+for i in friend_array:	
+	print i + ' is going to the pizza place.'
 
 # Asking first friend to input the amount of money they have
 first_money = input('Amount of money first friend has: ')
@@ -19,13 +24,6 @@ first_money = input('Amount of money first friend has: ')
 second_money = input('Amount of money second friend has: ')
 # Asking first friend to input the amount of money they have
 third_money = input('Amount of money third friend has: ')
-
-money_array = [first_money, second_money, third_money]
-
-for i in friend_array:	
-	money_array += 1
-	print i + ' has $' + money_array[0]
-
 
 
 # Use a function to return the amount of money the group has collectivly 
