@@ -39,7 +39,7 @@ def tip(group_total):
 	tip_conversion * .20 
 	return tip_conversion
 # Pass group_amount into tip function to return amount the tips should be	
-tip(group_amount)	
+tip = tip(group_amount)	
 
 # Set menu_dict equal to a dictonary
 menu_dict = dict()
@@ -52,21 +52,20 @@ menu_response = []
 
 # Use if, elif and else to determin which types of food the group can order based on the amount of money they collectivly have and the price of the menu items
 if group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza'] and group_amount >= menu_dict['large meat lovers stuffed crust pizza']:
-	menu_response.append('You have enough money for a large cheese pizza, large cheese stuffed crust pizza or a large meat lovers stuffed crust pizza. ')
+	menu_response.append('You have enough money for a large cheese pizza, large cheese stuffed crust pizza or a large meat lovers stuffed crust pizza')
 elif group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza']:
-	menu_response.append('You have enough money for a large cheese pizza or large cheese stuffed crust pizza. ')
+	menu_response.append('You have enough money for a large cheese pizza or large cheese stuffed crust pizza')
 elif group_amount >= menu_dict['large cheese pizza']:
-	menu_response.append('You have enough money for a large cheese pizza. ')
+	menu_response.append('You have enough money for a large cheese pizza')
 else:
-	menu_response.append('Sorry you do not have enough money for anything at this pizzaria. ')
+	menu_response.append('Sorry you do not have enough money for anything at this pizzaria')
 
 # Add message statment to combind information needed 
 message = '''
-	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. Collectively your group has ${group_amount}. {menu_response[0]} 
+	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. Collectively your group has ${group_amount}. {menu_response[0]}. Don't forget to leave a tip! A 20% tip for your groups meal is ${tip}! 
 '''				 
 
 # Formating the message 
 message = message.format(**locals())
 # Printing the message 
 print message
-
