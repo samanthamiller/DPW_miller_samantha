@@ -41,14 +41,16 @@ menu_dict = {'large cheese pizza': 10.50, 'large cheese stuffed crust pizza': 13
 # Use menu_response as an empty array that the if statment will later push responses
 menu_response = []
 
+
+# Use if, elif and else to determin which types of food the group can order based on the amount of money they collectivly have and the price of the menu items
 if group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza'] and group_amount >= menu_dict['large meat lovers stuffed crust pizza']:
-	menu_response.append('You have enough money for a large cheese pizza, large cheese stuffed crust pizza or a large meat lovers stuffed crust pizza')
+	menu_response.append('You have enough money for a large cheese pizza, large cheese stuffed crust pizza or a large meat lovers stuffed crust pizza. ')
 elif group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza']:
-	menu_respons.append('You have enough money for a large cheese pizza or large cheese stuffed crust pizza.')
+	menu_respons.append('You have enough money for a large cheese pizza or large cheese stuffed crust pizza. ')
 elif group_amount >= menu_dict['large cheese pizza']:
-	menu_response.append('You have enough money for a large cheese pizza')
+	menu_response.append('You have enough money for a large cheese pizza. ')
 else:
-	menu_response.append('You do not have enough money for anything at this pizzaria')
+	menu_response.append('Sorry you do not have enough money for anything at this pizzaria. ')
 
 				 
 	
