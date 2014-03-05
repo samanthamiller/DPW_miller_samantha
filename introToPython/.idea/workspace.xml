@@ -26,7 +26,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../wk1/introToPython/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.73001313" vertical-offset="557" max-vertical-offset="1440">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.3761468" vertical-offset="287" max-vertical-offset="1440">
               <folding />
             </state>
           </provider>
@@ -79,7 +79,14 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introToPython" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
@@ -150,7 +157,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../wk1/introToPython/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.73001313" vertical-offset="557" max-vertical-offset="1440">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.3761468" vertical-offset="287" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
