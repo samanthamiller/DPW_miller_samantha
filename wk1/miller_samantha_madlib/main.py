@@ -52,6 +52,8 @@ elif group_amount >= menu_dict['large cheese pizza']:
 else:
 	menu_response.append('Sorry you do not have enough money for anything at this pizzaria. ')
 
-				 
+message = '''
+	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. 
+'''				 
 	
 
