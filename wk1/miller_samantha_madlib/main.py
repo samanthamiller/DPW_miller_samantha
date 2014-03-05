@@ -22,9 +22,9 @@ third_money = input('Amount of money third friend has: ')
 
 money_array = [first_money, second_money, third_money]
 
-for i in friend_array:
-	for j in money_array:
-		print i + 'has $' + j
+for i in friend_array:	
+	money_array += 1
+	print i + ' has $' + money_array[0]
 
 
 
