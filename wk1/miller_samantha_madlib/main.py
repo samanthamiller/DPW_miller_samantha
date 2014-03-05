@@ -22,6 +22,7 @@ third_money = input('Amount of money third friend has: ')
 def group_amount(a1, a2, a3):
 	group_total = a1 + a2 + a3
 	return group_total
+# Set group_amount equal to the function with the parameters of the friends inputed money	
 group_amount = group_amount(first_money, second_money, third_money)
 
 # Use a function to return the amount of money that should be used for a tip based on groups collective money
@@ -29,9 +30,12 @@ def tip(group_total):
 	tip_conversion = group_total / 3 
 	tip_conversion * .20 
 	return tip_conversion
+# Pass group_amount into tip function to return amount the tips should be	
 tip(group_amount)	
 
+# Set menu_dict equal to a dictonary
 menu_dict = dict()
+# Set menu_dict equal to a dictionary containing menu options and their prices
 menu_dict = {'large cheese pizza': 10.50, 'large cheese stuffed crust pizza': 13.50, 'large meat lovers stuffed crust pizza': 15.50}
 
 menu_response = []
