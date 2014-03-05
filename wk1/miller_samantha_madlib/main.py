@@ -52,10 +52,13 @@ elif group_amount >= menu_dict['large cheese pizza']:
 else:
 	menu_response.append('Sorry you do not have enough money for anything at this pizzaria. ')
 
+# Add message statment to combind information needed 
 message = '''
 	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. Collectively your group has ${group_amount}. {menu_response[0]} 
 '''				 
 
+# Formating the message 
 message = message.format(**locals())
+# Printing the message 
 print message
 
