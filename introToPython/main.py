@@ -58,3 +58,33 @@ print villains['Hannah Montana']
 '''
 
 #Loops
+'''
+for i in range(1,100,1):
+    print 'There are ' + str(i) + '  bottles of beer on the wall'
+
+for s in students:
+    print s+ ' You are the awesomest'
+
+
+'''
+
+#Format method for big strings
+
+your_name = 'Samantha'
+real_age = '19'
+
+message = '''
+{your_name}, thanks for joining us. This is great! You are awesome! Thumbs up!
+You are {real_age} years old. That's great
+Sincerly,
+    People who can't spell
+'''
+
+message = message.format(**locals())
+print message
+
+
+import random
+for y in range(0,100):
+    print random.randrange(2,9)
+
