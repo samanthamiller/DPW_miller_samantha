@@ -18,11 +18,13 @@ second_money = input('Amount of money second friend has: ')
 # Asking first friend to input the amount of money they have
 third_money = input('Amount of money third friend has: ')
 
+# Use a function to return the amount of money the group has collectivly 
 def group_amount(a1, a2, a3):
 	group_total = a1 + a2 + a3
 	return group_total
 group_amount = group_amount(first_money, second_money, third_money)
 
+# Use a function to return the amount of money that should be used for a tip based on groups collective money
 def tip(group_total):
 	tip_conversion = group_total / 3 
 	tip_conversion * .20 
