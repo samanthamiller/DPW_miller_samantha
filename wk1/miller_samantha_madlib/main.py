@@ -11,8 +11,11 @@ second_friend = raw_input('Please enter the second friends name: ')
 # Asking third friend to input their name
 third_friend = raw_input('Please enter the third friends name: ')
 
+# Asking first friend to input the amount of money they have
 first_money = input('Amount of money first friend has: ')
+# Asking first friend to input the amount of money they have
 second_money = input('Amount of money second friend has: ')
+# Asking first friend to input the amount of money they have
 third_money = input('Amount of money third friend has: ')
 
 def group_amount(a1, a2, a3):
