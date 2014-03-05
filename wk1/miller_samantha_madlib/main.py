@@ -46,15 +46,16 @@ menu_response = []
 if group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza'] and group_amount >= menu_dict['large meat lovers stuffed crust pizza']:
 	menu_response.append('You have enough money for a large cheese pizza, large cheese stuffed crust pizza or a large meat lovers stuffed crust pizza. ')
 elif group_amount >= menu_dict['large cheese pizza'] and group_amount >= menu_dict['large cheese stuffed crust pizza']:
-	menu_respons.append('You have enough money for a large cheese pizza or large cheese stuffed crust pizza. ')
+	menu_response.append('You have enough money for a large cheese pizza or large cheese stuffed crust pizza. ')
 elif group_amount >= menu_dict['large cheese pizza']:
 	menu_response.append('You have enough money for a large cheese pizza. ')
 else:
 	menu_response.append('Sorry you do not have enough money for anything at this pizzaria. ')
 
 message = '''
-	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. 
+	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. Collectively your group has ${group_amount}. {menu_response[0]} 
 '''				 
 
 message = message.format(**locals())
+print message
 
