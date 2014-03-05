@@ -55,5 +55,6 @@ else:
 message = '''
 	{first_friend}, {second_friend} and {third_friend} welcome to Samantha's Pizzaria. 
 '''				 
-	
+
+message = message.format(**locals())
 
