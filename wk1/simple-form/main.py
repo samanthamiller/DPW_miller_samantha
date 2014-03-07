@@ -27,8 +27,9 @@ class MainHandler(webapp2.RequestHandler):
 		if self.request.GET:
 			info = self.request.GET['first_name'] + ' ' +self.request.GET['last_name']
 			page = Page() # Creates a page object
-			self.response.write(page.print_contents())
+			self.response.write(page.print_contents(info))
 		else:
+			page = Page() # Creates a page object
 			self.response.write(page.print_contents())
 			pass
 

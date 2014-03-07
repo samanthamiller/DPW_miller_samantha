@@ -28,8 +28,11 @@ class Page():
 		'''
 		self.ender = """</body></html>"""
 
-	def print_contents(self):
-		return self.head + self.body + self.form + self.ender
+	def print_contents(self, i=''):
+		if i=='':
+			return self.head + self.body + self.form + self.ender
+		else:
+			return self.head+self.body+i+self.ender	
 		
 class Button():
 	def __init__(self):
