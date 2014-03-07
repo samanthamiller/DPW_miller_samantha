@@ -26,10 +26,10 @@ class MainHandler(webapp2.RequestHandler):
 		# Start writing code  
 		if self.request.GET:
 			info = self.request.GET['first_name'] + ' ' +self.request.GET['last_name']
-			page = Page() # Creates a page object
+			page = Page(self) # Creates a page object
 			self.response.write(page.print_contents(info))
 		else:
-			page = Page() # Creates a page object
+			page = Page(self) # Creates a page object
 			self.response.write(page.print_contents())
 			pass
 

@@ -3,7 +3,7 @@ class Page():
 	# Methods - Methods are behaviors that store code
 	# Attributes - Variables that store data
 	# Constructor function
-	def __init__(self):
+	def __init__(self, main_self):
 		# Initilizing function - Constructor 
 		pass
 		# Traits
@@ -27,6 +27,9 @@ class Page():
 		</form>
 		'''
 		self.ender = """</body></html>"""
+
+		#main_self is SCOPED to __init__
+		main_self.response.write('Woohoo sugar tits')
 
 	def print_contents(self, i=''):
 		if i=='':
