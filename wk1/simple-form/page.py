@@ -32,7 +32,7 @@ class Page():
 		if i=='':
 			return self.head + self.body + self.form + self.ender
 		else:
-			return self.head+self.body+i+self.ender	
+			return self.head + i + self.ender	
 		
 class Button():
 	def __init__(self):
