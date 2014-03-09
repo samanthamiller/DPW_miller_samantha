@@ -19,8 +19,10 @@ from form import Form
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
-		self.response.write('Hello world!')
-
+		if self.request.GET:
+			pass
+		else:
+			pass
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
 ], debug=True)
