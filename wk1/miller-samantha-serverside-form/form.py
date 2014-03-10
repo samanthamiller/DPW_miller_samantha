@@ -6,6 +6,7 @@ class Form():
 		<html>
 			<head>
 				<title>Address Book</title>
+				<link rel='stylesheet' type='text/css' href='css/main.css'/>
 				<link rel='stylesheet' type='text/css' href='css/base.css'/>
 				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
 				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
@@ -14,20 +15,24 @@ class Form():
 		# Creating a form variable to contain the html form code
 		self.form = ''' 
 		<form method='GET' action=''>
-			<label for="first_name">First Name</label>
-			<input type='text' name='first_name' id='first_name'/>
-			<label for="last_name">Last Name</label>
-			<input type='text' name='last_name' id='last_name'/>
-			<label for="phone_number">Phone Number</label>
-			<input type='text' name='phone_number' placeholder='(555) 555-5555' id='phone_number'/>
-			<select name='phone_type'>
-				<option value='phoneType'>Home</option>
-		  		<option value='Cell' selected='selected'>Cell</option>
-		  		<option value='Work'>Work</option>
-			</select>
-			<p>Friend</p><input type='checkbox' name='relationship1' value='Friend'/>
-			<p>Co-worker</p><input type='checkbox' name='relationship2' value='Co-worker'/>
-			<input type='submit' value ='Enter'/>
+			<div class='eight columns'>
+				<label for="first_name">First Name</label>
+				<input type='text' name='first_name' id='first_name'/>
+				<label for="last_name">Last Name</label>
+				<input type='text' name='last_name' id='last_name'/>
+				<label for="phone_number">Phone Number</label>
+				<input type='text' name='phone_number' placeholder='(555) 555-5555' id='phone_number'/>
+			</div>
+			<div class = 'eight columns'>	
+				<select name='phone_type'>
+					<option value='phoneType'>Home</option>
+			  		<option value='Cell' selected='selected'>Cell</option>
+			  		<option value='Work'>Work</option>
+				</select>
+				<p>Friend</p><input type='checkbox' name='relationship1' value='Friend'/>
+				<p>Co-worker</p><input type='checkbox' name='relationship2' value='Co-worker'/>
+				<input type='submit' value ='Enter'/>
+			</div>	
 		</form>	
 		'''
 		self.footer = '''</div></body></html>'''
