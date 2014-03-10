@@ -21,6 +21,7 @@ class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		if self.request.GET:
 			pass
+			form_info = self.request.GET['first_name'] + ' ' + self.request.GET['last_name'] + ' ' + self.request.GET['phone_number']
 			form = Form(self) #Creates form Object
 			self.response.write(form.print_contents())
 		else:

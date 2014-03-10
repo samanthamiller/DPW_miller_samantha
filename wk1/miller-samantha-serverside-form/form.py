@@ -32,3 +32,4 @@ class Form():
 			return self.head + self.form + self.footer
 		else:
 			return self.head + i + self.footer
+
