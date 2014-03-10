@@ -19,9 +19,9 @@ class Form():
 		  		<option value='Cell' selected='selected'>Cell</option>
 		  		<option value='Work'>Work</option>
 			</select>
-			<input type='checkbox' name='relationship' value='Friend'/>
-			<input type='checkbox' name='relationship value='Family'/>
-			<input type='checkbox' name='relationship value='Co-worker'/>
+			<p>Friend</p><input type='checkbox' name='relationship' value='Friend'/>
+			<p>Family</p><input type='checkbox' name='relationship value='Family'/>
+			<p>Co-worker</p><input type='checkbox' name='relationship value='Co-worker'/>
 		</form>	
 		'''
 		self.footer = '''</body></html>'''
