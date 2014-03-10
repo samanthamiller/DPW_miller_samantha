@@ -22,6 +22,7 @@ class Form():
 			<p>Friend</p><input type='checkbox' name='relationship' value='Friend'/>
 			<p>Family</p><input type='checkbox' name='relationship value='Family'/>
 			<p>Co-worker</p><input type='checkbox' name='relationship value='Co-worker'/>
+			<input type='submit' value ='Enter'/>
 		</form>	
 		'''
 		self.footer = '''</body></html>'''
