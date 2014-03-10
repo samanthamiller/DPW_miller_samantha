@@ -5,5 +5,6 @@ class Form():
 		<html>
 			<head>
 				<title>Address Book</title>
-			</head> '''
+			</head> 
+		<body>'''
 
