@@ -1,0 +1,16 @@
+/* 
+Blue's light to dark
+#E1E6FA
+#C4D7ED
+#ABC8E2
+#375D81
+#183152
+*/
+
+html{
+	background-color: #183152;
+}
+
+.container{
+	background-color: #E1E6FA;
+}
