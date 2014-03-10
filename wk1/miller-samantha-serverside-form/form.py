@@ -6,8 +6,11 @@ class Form():
 		<html>
 			<head>
 				<title>Address Book</title>
+				<link rel='stylesheet' type='text/css' href='css/base.css'/>
+				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
+				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
 			</head> 
-		<body>'''
+		<body><div class='container'> '''
 		# Creating a form variable to contain the html form code
 		self.form = ''' 
 		<form method='GET' action=''>
@@ -28,7 +31,7 @@ class Form():
 			<input type='submit' value ='Enter'/>
 		</form>	
 		'''
-		self.footer = '''</body></html>'''
+		self.footer = '''</div></body></html>'''
 
 	def print_contents(self, i=''):
 		if i=='':
