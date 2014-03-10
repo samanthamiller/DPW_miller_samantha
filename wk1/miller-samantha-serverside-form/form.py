@@ -1,6 +1,6 @@
 class Form():
 	def __init__(self, main_self):
-		pass
+		
 		# Creating a head variable to contain the html head code
 		self.head = ''' <!DOCTYPE HTML>
 		<html>
@@ -19,7 +19,7 @@ class Form():
 			<label for="last_name">Last Name</label>
 			<input type='text' name='last_name' id='last_name'/>
 			<label for="phone_number">Phone Number</label>
-			<input type='text' name='phone_number' placeholder='(555)555-5555' id='phone_number'/>
+			<input type='text' name='phone_number' placeholder='(555) 555-5555' id='phone_number'/>
 			<select name='phone_type'>
 				<option value='phoneType'>Home</option>
 		  		<option value='Cell' selected='selected'>Cell</option>
