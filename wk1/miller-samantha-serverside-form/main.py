@@ -21,10 +21,10 @@ class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		if self.request.GET:
 			pass
-			form = Form(self) #Creates Page Object
+			form = Form(self) #Creates form Object
 		else:
 			pass
-			form = Form(self) #Creates Page Object
+			form = Form(self) #Creates form Object
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
 ], debug=True)
