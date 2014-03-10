@@ -26,4 +26,8 @@ class Form():
 		'''
 		self.footer = '''</body></html>'''
 
-
+	def print_contents(self, i=''):
+		if i=='':
+			return self.head + self.form + self.footer
+		else:
+			return self.head + i + self.footer
