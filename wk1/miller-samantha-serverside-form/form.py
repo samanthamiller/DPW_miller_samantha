@@ -25,9 +25,8 @@ class Form():
 		  		<option value='Cell' selected='selected'>Cell</option>
 		  		<option value='Work'>Work</option>
 			</select>
-			<p>Friend</p><input type='checkbox' name='relationship' value='Friend'/>
-			<p>Family</p><input type='checkbox' name='relationship value='Family'/>
-			<p>Co-worker</p><input type='checkbox' name='relationship value='Co-worker'/>
+			<p>Friend</p><input type='checkbox' name='relationship1' value='Friend'/>
+			<p>Co-worker</p><input type='checkbox' name='relationship2' value='Co-worker'/>
 			<input type='submit' value ='Enter'/>
 		</form>	
 		'''

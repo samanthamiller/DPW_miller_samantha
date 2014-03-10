@@ -20,12 +20,20 @@ from form import Form
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		if self.request.GET:
+			relationship = ''
 			try:
-				relationship_type = self.request.GET['relationship']
+				relationship_type = self.request.GET['relationship1']
 				if relationship_type:
-					self.request.GET['relationship']
-			except ValueError:
-				relationship_type = 'No relationship selected'
+					relationship = relationship + relationship_type + ' '
+			except StandardError:
+				pass
+
+			try:
+				relationship_type = self.request.GET['relationship2']
+				if relationship_type:
+					relationship = relationship + relationship_type
+			except StandardError:
+				pass			
 
 
 			pass
