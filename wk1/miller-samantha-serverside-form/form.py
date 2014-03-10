@@ -20,8 +20,8 @@ class Form():
 			<input type='text' name='last_name' id='last_name'/>
 			<label for="phone_number">Phone Number</label>
 			<input type='text' name='phone_number' placeholder='(555)555-5555' id='phone_number'/>
-			<select>
-				<option value='Home'>Home</option>
+			<select name='phone_type'>
+				<option value='phoneType'>Home</option>
 		  		<option value='Cell' selected='selected'>Cell</option>
 		  		<option value='Work'>Work</option>
 			</select>
