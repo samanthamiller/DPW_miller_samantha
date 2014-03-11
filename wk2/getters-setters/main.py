@@ -8,9 +8,10 @@ class MainHandler(webapp2.RequestHandler):
     	self.t.grade2 = 94
     	self.t.quiz1 = 72
     	self.t.quiz2 = 95
+    	self.t.calc_grade() #run the calc grade function
+    	print self.t.final_grade
     	# self.t.final_grade = self.t.calc_grade()
     	# To access the property function
-    	print self.t.final_grade
 
 
 # The 'object' inhearatince is important
@@ -34,7 +35,7 @@ class Transcript(object):
 
 	def calc_grade(self):
 		avg = (self.grade1 + self.grade2 + self.quiz1 + self.quiz2)/4
-		return avg
+		self.__final_grade = avg
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
