@@ -33,13 +33,15 @@ class MainHandler(webapp2.RequestHandler):
         self.yoda.name = 'Master Yoda'
         self.yoda.age = 896
         self.yoda.profession = 'Jedi'
-        
+
 class Character():
 	def __init__(self):
 		# Default values assigned here
 		self.name = ''
 		self.age = 0
 		self.profession = ''
+
+	def fight(self):	
 
 
 app = webapp2.WSGIApplication([
