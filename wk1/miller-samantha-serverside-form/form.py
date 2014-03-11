@@ -15,8 +15,10 @@ class Form():
 		# Creating a form variable to contain the html form code
 		self.form = ''' 
 		<form method='GET'>
-			<div class='eight columns'>
+			<div class='sixteen columns'>
 				<h1>Phone Book</h1>
+			</div>	
+			<div class='eight columns' id='first_column'>	
 				<label for="first_name">First Name</label>
 				<input type='text' name='first_name' id='first_name'/>
 				<label for="last_name">Last Name</label>
@@ -24,15 +26,17 @@ class Form():
 				<label for="phone_number">Phone Number</label>
 				<input type='text' name='phone_number' placeholder='(555) 555-5555' id='phone_number'/>
 			</div>
-			<div class = 'eight columns'>	
+			<div class = 'eight columns' id='second_column'>
+				<p class='label'>Select Phone Type</p>	
 				<select name='phone_type'>
 					<option value='phoneType'>Home</option>
 			  		<option value='Cell' selected='selected'>Cell</option>
 			  		<option value='Work'>Work</option>
 				</select>
-				<p>Friend</p><input type='checkbox' name='relationship1' value='Friend'/>
-				<p>Co-worker</p><input type='checkbox' name='relationship2' value='Co-worker'/>
-				<input type='submit' value ='Enter'/>
+				<p class='label'>Relationship</p>
+				<input type='checkbox' name='relationship1' value='Friend'/><p>Friend</p>
+				<input type='checkbox' name='relationship2' value='Co-worker'/><p>Co-worker</p> <br>
+				<input type='submit' value ='Enter' id='button'/>
 			</div>	
 		</form>	
 		'''

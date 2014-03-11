@@ -30,7 +30,6 @@ class MainHandler(webapp2.RequestHandler):
 			try:
 				relationship_type = self.request.GET['relationship1']
 				if relationship_type:
-					print relationship_type
 					relationship = relationship + relationship_type + ' '
 			except StandardError:
 				pass
@@ -38,12 +37,11 @@ class MainHandler(webapp2.RequestHandler):
 			try:
 				relationship_type2 = self.request.GET['relationship2']
 				if relationship_type2:
-					print relationship_type2
 					relationship = relationship + relationship_type2
 			except StandardError:
 				pass
 			
-			form_info = self.request.GET['first_name'] + ' ' + self.request.GET['last_name'] + ' ' + self.request.GET['phone_number'] + ' ' + self.request.GET['phone_type'] + ' ' + relationship
+			form_info = self.request.GET['first_name'] + ' ' + self.request.GET['last_name'] + ' ' + self.request.GET['phone_type'] + ' ' + self.request.GET['phone_number'] + ' ' + relationship
 			form = Form(self) #Creates form Object
 			self.response.write(form.print_contents(form_info))
 		else:

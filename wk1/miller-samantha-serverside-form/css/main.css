@@ -9,8 +9,38 @@ Blue's light to dark
 
 html{
 	background-color: #183152;
+	font-family: 'Helvetica Neue';
 }
 
 .container{
 	background-color: #E1E6FA;
+}
+
+
+
+#second_column{
+
+}
+
+h1{
+	font-family: 'Helvetica Neue';
+}
+
+p{
+	width: 150px;
+}
+
+.label{
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#button{
+	width: 218px;
+	font-size: 14px;
+}
+
+input[type="checkbox"]{
+	float: right;
+	margin-right: 350px;
 }
