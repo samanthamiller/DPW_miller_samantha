@@ -1,4 +1,5 @@
 class Form():
+	# Init function that will run when the page is opened 
 	def __init__(self, main_self):
 		
 		# Creating a head variable to contain the html head code
@@ -40,11 +41,14 @@ class Form():
 			</div>	
 		</form>	
 		'''
+		# Creating a footer variable to contain the end the html code of the page
 		self.footer = '''</div></body></html>'''
-
+	# Function to print the contents of this page
 	def print_contents(self, i=''):
+		# If i is empty populate the form for the user to input their information
 		if i=='':
 			return self.head + self.form + self.footer
+		# If the form has been filled out populate what the user entered	
 		else:
 			return self.head + i + self.footer
 
