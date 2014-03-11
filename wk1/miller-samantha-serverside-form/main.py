@@ -29,7 +29,6 @@ class MainHandler(webapp2.RequestHandler):
 		if self.request.GET:
 			# Creating empty sting variable that will later be used to populate form values onto the page.
 			relationship = ''
-
 			# Using try: to prevent checkbox errors
 			try:
 				# Set relationship_type equal to the value of the 'relationship1' checkbox if checked
@@ -41,7 +40,6 @@ class MainHandler(webapp2.RequestHandler):
 			# If they check neither box no error will happen			
 			except StandardError:
 				pass
-
 			# Using try: to prevent checkbox errors
 			try:
 				# Set relationshiip_type2 equal to the value of the "relationship2" checkbox if checked
@@ -54,7 +52,6 @@ class MainHandler(webapp2.RequestHandler):
 			# If they check neither box no error will happen		
 			except StandardError:
 				pass
-			
 			# Set variable form_info equal to all the user inputed form information
 			form_info = self.request.GET['first_name'] + ' ' + self.request.GET['last_name'] + ' ' + self.request.GET['phone_type'] + ' ' + self.request.GET['phone_number'] + ' ' + relationship
 			# Creates form Object
