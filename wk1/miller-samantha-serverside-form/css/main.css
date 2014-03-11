@@ -14,6 +14,7 @@ html{
 
 .container{
 	background-color: #E1E6FA;
+	min-height: 200px;
 }
 
 
