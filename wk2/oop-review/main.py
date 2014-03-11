@@ -28,11 +28,15 @@ class MainHandler(webapp2.RequestHandler):
         self.leia.name = 'Leaia Organa'
         self.leia.age = self.luke.age
         self.leia.profession = 'princess'
+        self.leia.speak()
 
         self.yoda = Character()
         self.yoda.name = 'Master Yoda'
         self.yoda.age = 896
         self.yoda.profession = 'Jedi'
+        self.yoda.speak()
+        for y in self.yoda.__dict__:
+        	print y
 
 class Character():
 	def __init__(self):
@@ -41,7 +45,11 @@ class Character():
 		self.age = 0
 		self.profession = ''
 
-	def fight(self):	
+	def fight(self):
+		print 'Yarrrrgghhh!'
+
+	def speak(self):
+		print 'How do you do, my name is ' + self.name		
 
 
 app = webapp2.WSGIApplication([
