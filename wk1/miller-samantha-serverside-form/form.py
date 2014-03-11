@@ -5,7 +5,7 @@ class Form():
 		self.head = ''' <!DOCTYPE HTML>
 		<html>
 			<head>
-				<title>Address Book</title>
+				<title>Phone Book</title>
 				<link rel='stylesheet' type='text/css' href='css/main.css'/>
 				<link rel='stylesheet' type='text/css' href='css/base.css'/>
 				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
@@ -14,8 +14,9 @@ class Form():
 		<body><div class='container'> '''
 		# Creating a form variable to contain the html form code
 		self.form = ''' 
-		<form method='GET' action=''>
+		<form method='GET'>
 			<div class='eight columns'>
+				<h1>Phone Book</h1>
 				<label for="first_name">First Name</label>
 				<input type='text' name='first_name' id='first_name'/>
 				<label for="last_name">Last Name</label>

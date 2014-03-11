@@ -41,7 +41,6 @@ class MainHandler(webapp2.RequestHandler):
 			form = Form(self) #Creates form Object
 			self.response.write(form.print_contents(form_info))
 		else:
-			pass
 			form = Form(self) #Creates form Object
 			self.response.write(form.print_contents())
 app = webapp2.WSGIApplication([
