@@ -8,7 +8,9 @@ class MainHandler(webapp2.RequestHandler):
     	self.t.grade2 = 94
     	self.t.quiz1 = 72
     	self.t.quiz2 = 95
-    	self.t.calc_grade() #run the calc grade function
+    	# Run the calc grade function
+    	self.t.calc_grade()
+    	self.t.final_grade += 5
     	print self.t.final_grade
     	# self.t.final_grade = self.t.calc_grade()
     	# To access the property function
@@ -27,10 +29,17 @@ class Transcript(object):
 		# _ protected
 		# __ private
 
-		# Make final_grade a property with the '@property' decorator
+	# Make final_grade a property with the '@property' decorator
+	# This allows read access	
 	@property
 	def final_grade(self):
-		return str(self.__final_grade) + ' is your final grade.'
+		return self.__final_grade 
+
+	# This allows write access
+	# Name of getter function + .setter
+	@final_grade.setter
+	def final_grade(self, grade):
+		self.__final_grade = grade	
 
 
 	def calc_grade(self):
