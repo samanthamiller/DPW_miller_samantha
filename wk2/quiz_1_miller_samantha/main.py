@@ -7,7 +7,9 @@ def calcArea(h,w):
 	else:
 		shape = 'rectangle'
 		return shape
-h = int(raw_input('Enter the height of the object: '))
-w = int(raw_input('Enter the width of the object: '))		
-area = calcArea(h,w)	
-print 'The area of your  is ' +int(area)+ ' square feet.'
+		
+height = raw_input('Enter the height of the object: ')
+width = raw_input('Enter the width of the object: ')		
+area = calcArea(int(height),int(width))	
+print 'The area of your  is ' +str(area)+ ' square feet.'
+
