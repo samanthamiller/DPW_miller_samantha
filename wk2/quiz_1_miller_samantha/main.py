@@ -1,12 +1,12 @@
 def calcArea(h,w):
 	area = int(h)*int(w)
+	shape = ''
 	return area
+	return shape
 	if h==w:
 		shape = 'square'
-		return shape
 	else:
 		shape = 'rectangle'
-		return shape
 		
 height = raw_input('Enter the height of the object: ')
 width = raw_input('Enter the width of the object: ')		
