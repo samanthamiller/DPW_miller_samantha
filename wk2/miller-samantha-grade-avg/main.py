@@ -60,6 +60,10 @@ class RestaurantBill(object):
 	def total(self, t):
 		self.__total = t
 
+	def calc_total(self)
+		total = self.plate1 + self.plate2 + self.plate3 + self.plate4 + self.plate5
+		self.__total = total
+
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
 ], debug=True)
