@@ -14,3 +14,4 @@ area = calcArea(int(height),int(width))
 print 'The area of your  is ' +str(area)+ ' square feet.'
 
 for i in range(1,100,1):
+	print i+ 'Bottles of Beer on the Wall, ' +i+ 'Bottles of Beer.. take one down and pass it around. Now you have' +i+ 'bottles of beer on the wall!'
