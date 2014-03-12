@@ -13,3 +13,4 @@ width = raw_input('Enter the width of the object: ')
 area = calcArea(int(height),int(width))	
 print 'The area of your  is ' +str(area)+ ' square feet.'
 
+for i in range(1,100,1):
