@@ -50,8 +50,12 @@ class RestaurantBill(object):
 		self.plate3 = 0
 		self.plate4 = 0
 		self.plate5 = 0
-		self.total = 0
+		self.__total = 0
 
+	@property
+	def total(self):
+		return self.__total
+		
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
 ], debug=True)
