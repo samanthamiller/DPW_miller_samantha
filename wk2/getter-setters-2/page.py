@@ -8,9 +8,9 @@ class Page(object):
 			<body>		
 		'''
 		self.body = ''' 
-		<a href=''>Strawberry</a>
-		<a href=''>Pear</a>
-		<a href=''>Banana</a>
+		<a href='?fruit'=strawberry'>Strawberry</a>
+		<a href='?fruit=pear'>Pear</a>
+		<a href='?fruit=banana'>Banana</a>
 		'''
 		self.close = '''
 		</body>
