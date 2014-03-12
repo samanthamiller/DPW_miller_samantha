@@ -7,6 +7,14 @@ import webapp2
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
 
+		self.links = ''' 
+		<a href='?table=table1'>{self.table_1.tableNumber}</a>
+		<a href='?table=table2'>{self.table_2.tableNumber}</a>
+		<a href='?table=table3'>{self.table_3.tableNumber}</a>
+		<a href='?table=table4'>{self.table_4.tableNumber}</a>
+		<a href='?table=table5'>{self.table_5.tableNumber}</a>
+		'''
+
 		self.table_1 = RestaurantBill()
 		self.table_1.tableNumber = 'Table 1'
 		self.table_1.plate1 = 7.50
@@ -56,6 +64,10 @@ class MainHandler(webapp2.RequestHandler):
 		self.table_5.plate5 = 9.87
 		self.table_5.calc_total()
 		print self.table_5.total
+
+		self.response.write(self.links)
+	# def update_page(self):
+	# 	self.page = self.links
 
 class RestaurantBill(object):
 	def __init__(self):
