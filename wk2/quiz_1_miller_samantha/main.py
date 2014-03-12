@@ -1,15 +1,13 @@
-class Quiz1:
-	def __init__(self):
-		print 
-	def calcArea(h,w):
-		h = raw_input('Enter the height of the object: ')
-		w = raw_input('Enter the width of the object: ')
-		area = h*w
-		return area
-		if h==w:
-			shape = 'This object is a square'
-			return shape
-		else:
-			shape = 'This object is a rectangle'
-			return shape	
-
+def calcArea(h,w):
+	area = h*w
+	return area
+	if h==w:
+		shape = 'square'
+		return shape
+	else:
+		shape = 'rectangle'
+		return shape
+h = raw_input('Enter the height of the object: ')
+w = raw_input('Enter the width of the object: ')		
+calcArea(h,w)	
+print 'The area of your  is ' +area+ ' square feet.'
