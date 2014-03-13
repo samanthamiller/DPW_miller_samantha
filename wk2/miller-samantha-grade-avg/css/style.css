@@ -1,0 +1,34 @@
+html{
+	background-image: url('/images/cocina.gif');
+}
+
+body{
+	background-image: url('/images/cocina.gif');
+}
+
+#result{
+	padding-bottom: 10px;
+}
+
+#total{
+	font-weight: bold;
+}
+
+#links{
+	text-align: center;
+	font-family: 'Silom', "Helvetica Neue", "Times New Roman", serif;
+	font-size: 20px;
+	height: 50px;
+	padding-top: 20px;
+	margin-right: 10px;
+	width: 960px;
+}
+
+.container{
+	background: #fff;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+}

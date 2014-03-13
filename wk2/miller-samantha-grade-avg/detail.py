@@ -4,11 +4,16 @@ class Detail(object):
 		<html>
 			<head>
 				<title>Dinner Bills</title>
+				<link rel='stylesheet' type='text/css' href='css/style.css'/>
+				<link rel='stylesheet' type='text/css' href='css/base.css'/>
+				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
+				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
 			</head>
-			<body> 
+			<body><div class='container'> 
 		'''
 
 		self.__form = ''' 
+			<h1>Table Bills</h1>
 			<form method="GET" name="bills" id="links">
 				<a href="/?bill=1" name="bill" id="table_1">Tabel 1</a>
 				<a href="/?bill=2" name="bill" id="table_2">Tabel 2</a>
@@ -19,6 +24,7 @@ class Detail(object):
 		'''
 
 		self.__footer = ''' 
+		</div>
 		</body>
 		</html>
 		'''

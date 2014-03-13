@@ -13,7 +13,7 @@ class MainHandler(webapp2.RequestHandler):
 		table_1 = RestaurantBill()
 		# Assign class's attributes
 		table_1.tableNumber = 'Table 1'
-		table_1.plate1 = 7.50
+		table_1.plate1 = 7.52
 		table_1.plate2 = 3.67
 		table_1.plate3 = 6.53
 		table_1.plate4 = 8.96
@@ -26,7 +26,7 @@ class MainHandler(webapp2.RequestHandler):
 		table_2.plate1 = 8.95
 		table_2.plate2 = 5.83
 		table_2.plate3 = 3.99
-		table_2.plate4 = 12.50
+		table_2.plate4 = 12.52
 		table_2.plate5 = 14.78
 
 		# Instantiate third bill
@@ -34,7 +34,7 @@ class MainHandler(webapp2.RequestHandler):
 		# Assign class's attributes
 		table_3.tableNumber = 'Table 3'
 		table_3.plate1 = 3.75
-		table_3.plate2 = 7.80
+		table_3.plate2 = 7.82
 		table_3.plate3 = 6.53
 		table_3.plate4 = 19.23
 		table_3.plate5 = 5.95
@@ -43,7 +43,7 @@ class MainHandler(webapp2.RequestHandler):
 		table_4 = RestaurantBill()
 		# Assign class's attributes
 		table_4.tableNumber = 'Table 4'
-		table_4.plate1 = 2.50
+		table_4.plate1 = 2.52
 		table_4.plate2 = 6.66
 		table_4.plate3 = 10.35
 		table_4.plate4 = 7.88
@@ -53,8 +53,8 @@ class MainHandler(webapp2.RequestHandler):
 		table_5 = RestaurantBill()
 		# Assign class's attributes
 		table_5.tableNumber = 'Table 5'
-		table_5.plate1 = 13.40
-		table_5.plate2 = 12.70
+		table_5.plate1 = 13.42
+		table_5.plate2 = 12.73
 		table_5.plate3 = 8.74
 		table_5.plate4 = 9.99
 		table_5.plate5 = 9.87
@@ -80,16 +80,18 @@ class MainHandler(webapp2.RequestHandler):
 		total = obj.plate1 + obj.plate2 + obj.plate3 + obj.plate4 + obj.plate5
 		# Variable to display the details of each tables bill
 		result = '''
-		<div id="result">
-			<h1>{obj.tableNumber}</h1>
-			<ul>
-				<li>{obj.plate1}</li>
-				<li>{obj.plate2}</li>
-				<li>{obj.plate3}</li>
-				<li>{obj.plate4}</li>
-				<li>{obj.plate5}</li>
-				<li>{total}</li>
-			</ul>
+		<div class = 'container'>
+			<div id="result">
+				<h1>{obj.tableNumber}</h1>
+				<ul>
+					<li>First Order: ${obj.plate1}</li>
+					<li>Second Order: ${obj.plate2}</li>
+					<li>Third Order: ${obj.plate3}</li>
+					<li>Fourth Order: ${obj.plate4}</li>
+					<li>Fifth Order: ${obj.plate5}</li>
+					<li id='total'>Bill Total: ${total}</li>
+				</ul>
+			</div>
 		</div>'''
 		# Format method for big strings
 		result = result.format(**locals())

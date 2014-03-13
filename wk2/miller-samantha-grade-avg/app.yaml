@@ -9,6 +9,26 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /css/style\.css
+  static_files: css/style.css
+  upload: css/style\.css
+
+- url: /css/base\.css
+  static_files: css/base.css
+  upload: css/base\.css
+
+- url: /css/layout\.css
+  static_files: css/layout.css
+  upload: css/layout\.css
+
+- url: /css/skeleton\.css
+  static_files: css/skeleton.css
+  upload: css/skeleton\.css
+
+- url: /images/cocina\.gif
+  static_files: images/cocina.gif
+  upload: images/cocina\.gif
+
 - url: .*
   script: main.app
 
