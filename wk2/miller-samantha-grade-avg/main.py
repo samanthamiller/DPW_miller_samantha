@@ -6,50 +6,61 @@ import webapp2
 from detail import Detail
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
-
+		# Creates detail object
 		detail = Detail()
 
-		self.table_1 = RestaurantBill()
-		self.table_1.tableNumber = 'Table 1'
-		self.table_1.plate1 = 7.50
-		self.table_1.plate2 = 3.67
-		self.table_1.plate3 = 6.53
-		self.table_1.plate4 = 8.96
-		self.table_1.plate5 = 6.78
+		# Instantiate first bill
+		table_1 = RestaurantBill()
+		# Assign class's attributes
+		table_1.tableNumber = 'Table 1'
+		table_1.plate1 = 7.50
+		table_1.plate2 = 3.67
+		table_1.plate3 = 6.53
+		table_1.plate4 = 8.96
+		table_1.plate5 = 6.78
 
-		self.table_2 = RestaurantBill()
-		self.table_2.tableNumber = 'Table 2'
-		self.table_2.plate1 = 8.95
-		self.table_2.plate2 = 5.83
-		self.table_2.plate3 = 3.99
-		self.table_2.plate4 = 12.50
-		self.table_2.plate5 = 14.78
+		# Instantiate second bill
+		table_2 = RestaurantBill()
+		# Assign class's attributes
+		table_2.tableNumber = 'Table 2'
+		table_2.plate1 = 8.95
+		table_2.plate2 = 5.83
+		table_2.plate3 = 3.99
+		table_2.plate4 = 12.50
+		table_2.plate5 = 14.78
 
-		self.table_3 = RestaurantBill()
-		self.table_3.tableNumber = 'Table 3'
-		self.table_3.plate1 = 3.75
-		self.table_3.plate2 = 7.80
-		self.table_3.plate3 = 6.53
-		self.table_3.plate4 = 19.23
-		self.table_3.plate5 = 5.95
+		# Instantiate third bill
+		table_3 = RestaurantBill()
+		# Assign class's attributes
+		table_3.tableNumber = 'Table 3'
+		table_3.plate1 = 3.75
+		table_3.plate2 = 7.80
+		table_3.plate3 = 6.53
+		table_3.plate4 = 19.23
+		table_3.plate5 = 5.95
 
-		self.table_4 = RestaurantBill()
-		self.table_4.tableNumber = 'Table 4'
-		self.table_4.plate1 = 2.50
-		self.table_4.plate2 = 6.66
-		self.table_4.plate3 = 10.35
-		self.table_4.plate4 = 7.88
-		self.table_4.plate5 = 4.81
+		# Instantiate fourth bill
+		table_4 = RestaurantBill()
+		# Assign class's attributes
+		table_4.tableNumber = 'Table 4'
+		table_4.plate1 = 2.50
+		table_4.plate2 = 6.66
+		table_4.plate3 = 10.35
+		table_4.plate4 = 7.88
+		table_4.plate5 = 4.81
 
-		self.table_5 = RestaurantBill()
-		self.table_5.tableNumber = 'Table 5'
-		self.table_5.plate1 = 13.40
-		self.table_5.plate2 = 12.70
-		self.table_5.plate3 = 8.74
-		self.table_5.plate4 = 9.99
-		self.table_5.plate5 = 9.87
+		# Instantiate fifth bill
+		table_5 = RestaurantBill()
+		# Assign class's attributes
+		table_5.tableNumber = 'Table 5'
+		table_5.plate1 = 13.40
+		table_5.plate2 = 12.70
+		table_5.plate3 = 8.74
+		table_5.plate4 = 9.99
+		table_5.plate5 = 9.87
 
-		bills = [table1,table2,table3,table4,table5]
+		# Array to 
+		bills = [table_1,table_2,table_3,table_4,table_5]
 
 		self.response.write(detail.header())
 		self.response.write(detail.form())
