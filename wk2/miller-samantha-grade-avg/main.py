@@ -61,6 +61,10 @@ class MainHandler(webapp2.RequestHandler):
 
 		# bills = [table1,table2,table3,table4,table5]
 
+		self.response.write(detail.header())
+		self.response.write(detail.form())
+		self.response.write(detail.footer())
+
 class RestaurantBill(object):
 	def __init__(self):
 		self.tableNumber = ''
