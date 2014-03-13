@@ -4,7 +4,7 @@ class Detail(object):
 		<html>
 			<head>
 				<title>Dinner Bills</title>
-			<head>
+			</head>
 			<body> 
 		'''
 
@@ -15,6 +15,7 @@ class Detail(object):
 				<a href="/?bill=3" name="bill" id="table3">Tabel 3</a>
 				<a href="/?bill=4" name="bill" id="table4">Tabel 4</a>
 				<a href="/?bill=5" name="bill" id="table5">Tabel 5</a>
+			</form>
 		'''
 
 		self.__footer = ''' 

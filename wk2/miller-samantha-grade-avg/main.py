@@ -59,10 +59,14 @@ class MainHandler(webapp2.RequestHandler):
 		self.table_5.calc_total()
 		print self.table_5.total
 
-		# bills = [table1,table2,table3,table4,table5]
+		bills = [table1,table2,table3,table4,table5]
 
 		self.response.write(detail.header())
 		self.response.write(detail.form())
+		if self.request.GET:
+			bill = (int(self.request.GET['bill']))-1
+			print bill
+			self.response.write(self.html(bills[bill]))
 		self.response.write(detail.footer())
 
 class RestaurantBill(object):
