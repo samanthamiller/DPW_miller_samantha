@@ -59,6 +59,8 @@ class MainHandler(webapp2.RequestHandler):
 		self.table_5.calc_total()
 		print self.table_5.total
 
+		bills = [tabel1,table2,table3,table4,table5]
+
 class RestaurantBill(object):
 	def __init__(self):
 		self.tableNumber = ''
