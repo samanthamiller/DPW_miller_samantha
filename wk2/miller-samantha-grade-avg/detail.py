@@ -1,3 +1,10 @@
 class Detail(object):
 	def __init__(self):
-		pass
+		self.__header = ''' <!DOCTYPE HTML>
+		<html>
+			<head>
+				<title>Dinner Bills</title>
+			<head>
+			<body> 
+		'''
+		
