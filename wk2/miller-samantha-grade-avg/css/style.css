@@ -2,10 +2,6 @@ html{
 	background-image: url('/images/cocina.gif');
 }
 
-body{
-	background-image: url('/images/cocina.gif');
-}
-
 #result{
 	padding-bottom: 10px;
 }
@@ -16,12 +12,10 @@ body{
 
 #links{
 	text-align: center;
-	font-family: 'Silom', "Helvetica Neue", "Times New Roman", serif;
+	font-family: 'Avenir Black', "Helvetica Neue", "Times New Roman", serif;
 	font-size: 20px;
 	height: 50px;
 	padding-top: 20px;
-	margin-right: 10px;
-	width: 960px;
 }
 
 .container{
