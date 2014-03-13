@@ -49,7 +49,7 @@ class MainHandler(webapp2.RequestHandler):
 		self.table_5.plate4 = 9.99
 		self.table_5.plate5 = 9.87
 
-		#bills = [table1,table2,table3,table4,table5]
+		bills = [table1,table2,table3,table4,table5]
 
 		self.response.write(detail.header())
 		self.response.write(detail.form())
@@ -62,17 +62,19 @@ class MainHandler(webapp2.RequestHandler):
 	def html(self,obj):
 		total = obj.plate1 + obj.plate2 + obj.plate3 + obj.plate4 + obj.plate5
 		result = '''
-    	<div id="result">
-    		<h1>{obj.tableNumber}</h1>
-    		<ul>
-    			<li>{obj.plate1}</li>
-    			<li>{obj.plate2}</li>
-    			<li>{obj.plate3}</li>
-    			<li>{obj.plate4}</li>
-    			<li>{obj.plate5}</li>
-    			<li>{total}</li>
-    		</ul>
-    	</div>'''
+		<div id="result">
+			<h1>{obj.tableNumber}</h1>
+			<ul>
+				<li>{obj.plate1}</li>
+				<li>{obj.plate2}</li>
+				<li>{obj.plate3}</li>
+				<li>{obj.plate4}</li>
+				<li>{obj.plate5}</li>
+				<li>{total}</li>
+			</ul>
+		</div>'''
+		result = result.format(**locals())
+		return result
 
 class RestaurantBill(object):
 	def __init__(self):
