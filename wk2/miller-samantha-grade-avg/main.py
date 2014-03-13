@@ -3,17 +3,11 @@
 # Grade Average sike 
 
 import webapp2
-
+from detail import Detail
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
 
-		self.links = ''' 
-		<a href='?table=table1'>{self.table_1.tableNumber}</a>
-		<a href='?table=table2'>{self.table_2.tableNumber}</a>
-		<a href='?table=table3'>{self.table_3.tableNumber}</a>
-		<a href='?table=table4'>{self.table_4.tableNumber}</a>
-		<a href='?table=table5'>{self.table_5.tableNumber}</a>
-		'''
+		detail = Detail()
 
 		self.table_1 = RestaurantBill()
 		self.table_1.tableNumber = 'Table 1'
