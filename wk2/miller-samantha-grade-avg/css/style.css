@@ -2,10 +2,6 @@ html{
 	background-image: url('/images/cocina.gif');
 }
 
-#result{
-	padding-bottom: 10px;
-}
-
 #total{
 	font-weight: bold;
 }
@@ -21,6 +17,8 @@ html{
 .container{
 	background: #fff;
 	text-align: center;
+	border:2px solid #ef933f;
+	border-radius:25px;
 }
 
 h1{

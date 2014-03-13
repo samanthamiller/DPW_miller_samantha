@@ -62,16 +62,19 @@ class MainHandler(webapp2.RequestHandler):
 		# Array to print out links
 		bills = [table_1,table_2,table_3,table_4,table_5]
 
-		# If statment to populate links
-		if self.request.GET:
-			bill = (int(self.request.GET['bill']))-1
-			self.response.write(self.html(bills[bill]))
+		
+
 		# Shows the header html
 		self.response.write(detail.header())
 		# Shows the form html
 		self.response.write(detail.form())
+		# If statment to populate links
+		if self.request.GET:
+			bill = (int(self.request.GET['bill']))-1
+			self.response.write(self.html(bills[bill]))
 		# Shows the footer html
 		self.response.write(detail.footer())
+
 
 
 	# Function to total each tables bill as well as show the total and each persons meal cost
@@ -81,7 +84,7 @@ class MainHandler(webapp2.RequestHandler):
 		# Variable to display the details of each tables bill
 		result = '''
 		<div class = 'container'>
-			<div id="result">
+			<div>
 				<h1>{obj.tableNumber}</h1>
 				<ul>
 					<li>First Order: ${obj.plate1}</li>
