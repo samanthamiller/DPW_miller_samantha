@@ -59,10 +59,6 @@ class MainHandler(webapp2.RequestHandler):
 		self.table_5.calc_total()
 		print self.table_5.total
 
-		self.response.write(self.links)
-	# def update_page(self):
-	# 	self.page = self.links
-
 class RestaurantBill(object):
 	def __init__(self):
 		self.tableNumber = ''
