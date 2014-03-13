@@ -62,8 +62,6 @@ class MainHandler(webapp2.RequestHandler):
 		# Array to print out links
 		bills = [table_1,table_2,table_3,table_4,table_5]
 
-		
-
 		# Shows the header html
 		self.response.write(detail.header())
 		# Shows the form html
@@ -75,26 +73,22 @@ class MainHandler(webapp2.RequestHandler):
 		# Shows the footer html
 		self.response.write(detail.footer())
 
-
-
 	# Function to total each tables bill as well as show the total and each persons meal cost
 	def html(self,obj):
 		# Varaible equal to the total of the tables meals
 		total = obj.plate1 + obj.plate2 + obj.plate3 + obj.plate4 + obj.plate5
 		# Variable to display the details of each tables bill
 		result = '''
-		<div class = 'container'>
-			<div>
-				<h1>{obj.tableNumber}</h1>
-				<ul>
-					<li>First Order: ${obj.plate1}</li>
-					<li>Second Order: ${obj.plate2}</li>
-					<li>Third Order: ${obj.plate3}</li>
-					<li>Fourth Order: ${obj.plate4}</li>
-					<li>Fifth Order: ${obj.plate5}</li>
-					<li id='total'>Bill Total: ${total}</li>
-				</ul>
-			</div>
+		<div class = 'container' id='result'>
+			<h1>{obj.tableNumber}</h1>
+			<ul>
+				<li>First Order: ${obj.plate1}</li>
+				<li>Second Order: ${obj.plate2}</li>
+				<li>Third Order: ${obj.plate3}</li>
+				<li>Fourth Order: ${obj.plate4}</li>
+				<li>Fifth Order: ${obj.plate5}</li>
+				<li id='total'>Bill Total: ${total}</li>
+			</ul>
 		</div>'''
 		# Format method for big strings
 		result = result.format(**locals())
