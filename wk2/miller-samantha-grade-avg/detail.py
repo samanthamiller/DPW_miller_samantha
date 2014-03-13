@@ -16,3 +16,10 @@ class Detail(object):
 				<a href="/?bill=4" name="bill" id="table4">Tabel 4</a>
 				<a href="/?bill=5" name="bill" id="table5">Tabel 5</a>
 		'''
+
+		self.__footer = ''' 
+		</body>
+		</html>
+		'''
+
+	
