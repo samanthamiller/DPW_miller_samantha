@@ -59,19 +59,26 @@ class MainHandler(webapp2.RequestHandler):
 		table_5.plate4 = 9.99
 		table_5.plate5 = 9.87
 
-		# Array to 
+		# Array to print out links
 		bills = [table_1,table_2,table_3,table_4,table_5]
 
-		self.response.write(detail.header())
-		self.response.write(detail.form())
+		# If statment to populate links
 		if self.request.GET:
 			bill = (int(self.request.GET['bill']))-1
-			print bill
 			self.response.write(self.html(bills[bill]))
+		# Shows the header html
+		self.response.write(detail.header())
+		# Shows the form html
+		self.response.write(detail.form())
+		# Shows the footer html
 		self.response.write(detail.footer())
 
+
+	# Function to total each tables bill as well as show the total and each persons meal cost
 	def html(self,obj):
+		# Varaible equal to the total of the tables meals
 		total = obj.plate1 + obj.plate2 + obj.plate3 + obj.plate4 + obj.plate5
+		# Variable to display the details of each tables bill
 		result = '''
 		<div id="result">
 			<h1>{obj.tableNumber}</h1>
@@ -84,11 +91,16 @@ class MainHandler(webapp2.RequestHandler):
 				<li>{total}</li>
 			</ul>
 		</div>'''
+		# Format method for big strings
 		result = result.format(**locals())
+		# Returning result so it can be populated on screen
 		return result
 
+# Creating a class and passing it object for the inheratince
 class RestaurantBill(object):
+	# Init function
 	def __init__(self):
+		# Seven attributes of the class
 		self.tableNumber = ''
 		self.plate1 = 0
 		self.plate2 = 0
@@ -97,15 +109,15 @@ class RestaurantBill(object):
 		self.plate5 = 0
 		self.__total = 0
 
+	# Property for __total
 	@property
 	def total(self):
 		return self.__total
 
+	# Setter for __total
 	@total.setter
 	def total(self, t):
 		self.__total = t
-
-
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
 ], debug=True)

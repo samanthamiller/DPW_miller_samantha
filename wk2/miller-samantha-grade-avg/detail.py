@@ -9,7 +9,7 @@ class Detail(object):
 		'''
 
 		self.__form = ''' 
-			<form action="" method="GET" name="bills" id="links">
+			<form method="GET" name="bills" id="links">
 				<a href="/?bill=1" name="bill" id="table_1">Tabel 1</a>
 				<a href="/?bill=2" name="bill" id="table_2">Tabel 2</a>
 				<a href="/?bill=3" name="bill" id="table_3">Tabel 3</a>
