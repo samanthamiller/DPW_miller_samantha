@@ -3,6 +3,11 @@ class Details(object):
 		self.header = ''' <!DOCTYPE HTML>
 		<html>
 			<head>
-				<title> </title>
+				<title>Animal Info</title>
 			</head>
+			<body>
 		'''
+		self.body = ''' '''
+		self.footer = ''' 
+		</body>
+		</html>'''
