@@ -27,6 +27,10 @@ class VetBill(object):
 		self.procedure_cost = 0
 		self.tax = 0
 
+		@property
+		def animal_name(self):
+			return self.__animal_name
+
 	def print_info(an_name, an_type):
 		animal_info = an_name + ' ' + an_type
 		print animal_info
