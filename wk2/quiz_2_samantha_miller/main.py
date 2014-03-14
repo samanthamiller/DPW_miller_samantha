@@ -28,7 +28,9 @@ class VetBill(object):
 		self.tax = 0
 
 	def print_info(an_name, an_type):
+		animal_info = an_name + ' ' + an_type
+		print animal_info
 
-	def calc_total(c, t):
-		total = c + t
+	def calc_total(cost, tax):
+		total = cost + tax
 		return total
