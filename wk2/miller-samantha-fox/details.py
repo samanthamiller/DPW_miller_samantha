@@ -11,3 +11,10 @@ class Details(object):
 		self.footer = ''' 
 		</body>
 		</html>'''
+
+	def header(self):
+		return self.header
+	def body(self):
+		return self.body
+	def footer(self):
+		return self.footer
