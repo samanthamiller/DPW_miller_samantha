@@ -22,4 +22,13 @@ class Cats(object):
 
 class VetBill(object):
 	def __init__(self):
-		
+		self.animal_name = ''
+		self.animal_type = ''
+		self.procedure_cost = 0
+		self.tax = 0
+
+	def print_info(an_name, an_type):
+
+	def calc_total(c, t):
+		total = c + t
+		return total
