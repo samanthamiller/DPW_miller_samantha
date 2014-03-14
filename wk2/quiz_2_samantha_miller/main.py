@@ -1,1 +1,3 @@
-print 'hello world'
+class Cats(object):
+	def __init__(self):
+		pass
