@@ -30,8 +30,34 @@ class Lion(Animal):
 		self.genus = 'Panthera'
 		self.image = ''
 		self.lifespan = '15'
-		self.habitat = 'Sub-Saharan Africa except in desert and rainforest habitats.'
-		self.geolocation = ''
+		self.habitat = 'Tropical'
+		self.geolocation = 'Sub-Saharan Africa'
+
+class Kangaroo(Animal):
+	def __init__(self):
+		super(Kangaroo,self).__init__()
+		self.phylum = 'Chordata'
+		self.animal_class = 'Mammalia'
+		self.order = 'Diprotodontia'
+		self.family = 'Macropodidae'
+		self.genus = 'Macropus'
+		self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Macropus_fuliginosus/pictures/collections/contributors/lynda_staker/Macropus_fuliginosus2/'
+		self.lifespan = '15'
+		self.habitat = 'Forest'
+		self.geolocation = 'Southern Australia'
+
+class PatasMonkey(Animal):
+	def __init__(self):
+		super(PatasMonkey,self).__init__()
+		self.phylum = 'Chordata'
+		self.animal_class = 'Mammalia'
+		self.order = 'Primates'
+		self.family = 'Cercopithecidae'
+		self.genus = 'Erythrocebus'
+		self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Erythrocebus_patas/pictures/collections/contributors/corel_cd/patas/'
+		self.lifespan = '15'
+		self.habitat = 'Grassland'
+		self.geolocation = 'Ethiopia'
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
