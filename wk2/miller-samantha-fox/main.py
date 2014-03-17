@@ -4,6 +4,9 @@ from details import Details
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         details = Details()
+        lion = Lion()
+        kangaroo = Kangaroo()
+        monkey = PatasMonkey()
         self.response.write(details.header)
         self.response.write(details.body)
         self.response.write(details.footer)
