@@ -7,9 +7,19 @@ from details import Details
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+    	# Instantiate the details class, contains the html.
         details = Details()
         # Instantiate the Lion subclass
         lion = Lion()
+        lion.phylum = 'Chordata'
+        lion.animal_class = 'Mammalia'
+        lion.order = 'Carnivora'
+        lion.family = 'Felidea'
+        lion.genus = 'Panthera'
+        lion.image = 'http://www.jogjis.com/stock/animal-mad-female-lion-growling-mad-hd-wallpaper.jpg'
+        lion.lifespan = '15'
+        lion.habitat = 'Tropical'
+        lion.geolocation = 'Sub-Saharan Africa'
         # Instantiate the Kangaroo subclass
         kangaroo = Kangaroo()
         # Instantiate the PatasMonkey subclass
@@ -40,15 +50,6 @@ class Animal(object):
 class Lion(Animal):
 	def __init__(self):
 		super(Lion,self).__init__()
-		self.phylum = 'Chordata'
-		self.animal_class = 'Mammalia'
-		self.order = 'Carnivora'
-		self.family = 'Felidea'
-		self.genus = 'Panthera'
-		self.image = 'http://www.jogjis.com/stock/animal-mad-female-lion-growling-mad-hd-wallpaper.jpg'
-		self.lifespan = '15'
-		self.habitat = 'Tropical'
-		self.geolocation = 'Sub-Saharan Africa'
 
 class Kangaroo(Animal):
 	def __init__(self):
