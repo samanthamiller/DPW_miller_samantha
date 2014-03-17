@@ -8,8 +8,11 @@ from details import Details
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         details = Details()
+        # Instantiate the Lion subclass
         lion = Lion()
+        # Instantiate the Kangaroo subclass
         kangaroo = Kangaroo()
+        # Instantiate the PatasMonkey subclass
         monkey = PatasMonkey()
         self.response.write(details.header + details.body + details.footer)
 
