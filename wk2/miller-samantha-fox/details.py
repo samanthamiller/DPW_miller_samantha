@@ -8,7 +8,10 @@ class Details(object):
 			<body>
 		'''
 		self.body = ''' 
-		<a href='/?animal=1' name = 'animal' class ='link'> </a> '''
+		<a href='/?animal=1' name = 'animal' class ='link'>Lion</a>
+		<a href='/?animal=2' name = 'animal' class ='link'>Kangaroo</a>
+		<a href='/?animal=3' name = 'animal' class ='link'>Patas Monkey</a>
+		'''
 		self.footer = ''' 
 		</body>
 		</html>'''
