@@ -8,9 +8,11 @@ class Details(object):
 			<body>
 		'''
 		self.body = ''' 
-		<a href='/?animal=1' name = 'animal' class ='link'>Lion</a>
-		<a href='/?animal=2' name = 'animal' class ='link'>Kangaroo</a>
-		<a href='/?animal=3' name = 'animal' class ='link'>Patas Monkey</a>
+		<form method='GET' name='animals' id='links'>
+			<a href='/?animal=1' name = 'animal' class ='link' id='lion'>Lion</a>
+			<a href='/?animal=2' name = 'animal' class ='link' id='kangaroo'>Kangaroo</a>
+			<a href='/?animal=3' name = 'animal' class ='link' id='monkey'>Patas Monkey</a>
+		</form>
 		'''
 		self.footer = ''' 
 		</body>
