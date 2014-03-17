@@ -9,8 +9,10 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
     	# Instantiate the details class, contains the html.
         details = Details()
+
         # Instantiate the Lion subclass
         lion = Lion()
+        # Assign information to attributes passed down from Lion's superclass Animal
         lion.phylum = 'Chordata'
         lion.animal_class = 'Mammalia'
         lion.order = 'Carnivora'
@@ -20,10 +22,32 @@ class MainHandler(webapp2.RequestHandler):
         lion.lifespan = '15'
         lion.habitat = 'Tropical'
         lion.geolocation = 'Sub-Saharan Africa'
+
         # Instantiate the Kangaroo subclass
         kangaroo = Kangaroo()
+        # Assign information to attributes passed down from Kangaroo's superclass Animal
+        self.phylum = 'Chordata'
+        self.animal_class = 'Mammalia'
+        self.order = 'Diprotodontia'
+        self.family = 'Macropodidae'
+        self.genus = 'Macropus'
+        self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Macropus_fuliginosus/pictures/collections/contributors/lynda_staker/Macropus_fuliginosus2/'
+        self.lifespan = '15'
+        self.habitat = 'Forest'
+        self.geolocation = 'Southern Australia'
+
         # Instantiate the PatasMonkey subclass
         monkey = PatasMonkey()
+        self.phylum = 'Chordata'
+        self.animal_class = 'Mammalia'
+        self.order = 'Primates'
+        self.family = 'Cercopithecidae'
+        self.genus = 'Erythrocebus'
+        self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Erythrocebus_patas/pictures/collections/contributors/corel_cd/patas/'
+        self.lifespan = '15'
+        self.habitat = 'Grassland'
+        self.geolocation = 'Ethiopia'
+
         self.response.write(details.header + details.body + details.footer)
 
 class Animal(object):
@@ -54,28 +78,10 @@ class Lion(Animal):
 class Kangaroo(Animal):
 	def __init__(self):
 		super(Kangaroo,self).__init__()
-		self.phylum = 'Chordata'
-		self.animal_class = 'Mammalia'
-		self.order = 'Diprotodontia'
-		self.family = 'Macropodidae'
-		self.genus = 'Macropus'
-		self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Macropus_fuliginosus/pictures/collections/contributors/lynda_staker/Macropus_fuliginosus2/'
-		self.lifespan = '15'
-		self.habitat = 'Forest'
-		self.geolocation = 'Southern Australia'
 
 class PatasMonkey(Animal):
 	def __init__(self):
 		super(PatasMonkey,self).__init__()
-		self.phylum = 'Chordata'
-		self.animal_class = 'Mammalia'
-		self.order = 'Primates'
-		self.family = 'Cercopithecidae'
-		self.genus = 'Erythrocebus'
-		self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Erythrocebus_patas/pictures/collections/contributors/corel_cd/patas/'
-		self.lifespan = '15'
-		self.habitat = 'Grassland'
-		self.geolocation = 'Ethiopia'
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
