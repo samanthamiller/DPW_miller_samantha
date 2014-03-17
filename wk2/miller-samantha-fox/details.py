@@ -7,7 +7,8 @@ class Details(object):
 			</head>
 			<body>
 		'''
-		self.body = ''' '''
+		self.body = ''' 
+		<a href='/?animal=1' name = 'animal' class ='link'> </a> '''
 		self.footer = ''' 
 		</body>
 		</html>'''
