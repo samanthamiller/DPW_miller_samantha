@@ -26,27 +26,27 @@ class MainHandler(webapp2.RequestHandler):
         # Instantiate the Kangaroo subclass
         kangaroo = Kangaroo()
         # Assign information to attributes passed down from Kangaroo's superclass Animal
-        self.phylum = 'Chordata'
-        self.animal_class = 'Mammalia'
-        self.order = 'Diprotodontia'
-        self.family = 'Macropodidae'
-        self.genus = 'Macropus'
-        self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Macropus_fuliginosus/pictures/collections/contributors/lynda_staker/Macropus_fuliginosus2/'
-        self.lifespan = '15'
-        self.habitat = 'Forest'
-        self.geolocation = 'Southern Australia'
+        kangaroo.phylum = 'Chordata'
+        kangaroo.animal_class = 'Mammalia'
+        kangaroo.order = 'Diprotodontia'
+        kangaroo.family = 'Macropodidae'
+        kangaroo.genus = 'Macropus'
+        kangaroo.image = 'http://animaldiversity.ummz.umich.edu/accounts/Macropus_fuliginosus/pictures/collections/contributors/lynda_staker/Macropus_fuliginosus2/'
+        kangaroo.lifespan = '15'
+        kangaroo.habitat = 'Forest'
+        kangaroo.geolocation = 'Southern Australia'
 
         # Instantiate the PatasMonkey subclass
         monkey = PatasMonkey()
-        self.phylum = 'Chordata'
-        self.animal_class = 'Mammalia'
-        self.order = 'Primates'
-        self.family = 'Cercopithecidae'
-        self.genus = 'Erythrocebus'
-        self.image = 'http://animaldiversity.ummz.umich.edu/accounts/Erythrocebus_patas/pictures/collections/contributors/corel_cd/patas/'
-        self.lifespan = '15'
-        self.habitat = 'Grassland'
-        self.geolocation = 'Ethiopia'
+        monkey.phylum = 'Chordata'
+        monkey.animal_class = 'Mammalia'
+        monkey.order = 'Primates'
+        monkey.family = 'Cercopithecidae'
+        monkey.genus = 'Erythrocebus'
+        monkey.image = 'http://animaldiversity.ummz.umich.edu/accounts/Erythrocebus_patas/pictures/collections/contributors/corel_cd/patas/'
+        monkey.lifespan = '15'
+        monkey.habitat = 'Grassland'
+        monkey.geolocation = 'Ethiopia'
 
         self.response.write(details.header + details.body + details.footer)
 
