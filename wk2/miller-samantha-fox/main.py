@@ -19,6 +19,14 @@ class Animal(object):
 		self.lifespan = ''
 		self.habitat = ''
 		self.geolocation = ''
+		self.sound = ''
+
+		@property
+		def sound(self):
+			return self.__sound
+
+		@sound.setter
+		def sound(self, )
 
 class Lion(Animal):
 	def __init__(self):
