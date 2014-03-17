@@ -28,7 +28,7 @@ class Lion(Animal):
 		self.order = 'Carnivora'
 		self.family = 'Felidea'
 		self.genus = 'Panthera'
-		self.image = ''
+		self.image = 'http://www.jogjis.com/stock/animal-mad-female-lion-growling-mad-hd-wallpaper.jpg'
 		self.lifespan = '15'
 		self.habitat = 'Tropical'
 		self.geolocation = 'Sub-Saharan Africa'
