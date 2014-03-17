@@ -1,3 +1,7 @@
+# Samantha Miller
+# March 17, 2014
+# What does the fox say
+
 import webapp2
 from details import Details
 
@@ -7,9 +11,7 @@ class MainHandler(webapp2.RequestHandler):
         lion = Lion()
         kangaroo = Kangaroo()
         monkey = PatasMonkey()
-        self.response.write(details.header)
-        self.response.write(details.body)
-        self.response.write(details.footer)
+        self.response.write(details.header + details.body + details.footer)
 
 class Animal(object):
 	def __init__(self):
