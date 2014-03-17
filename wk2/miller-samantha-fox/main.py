@@ -26,7 +26,8 @@ class Animal(object):
 			return self.__sound
 
 		@sound.setter
-		def sound(self, )
+		def sound(self, specific_sound):
+			self.__sound = specific_sound
 
 class Lion(Animal):
 	def __init__(self):
