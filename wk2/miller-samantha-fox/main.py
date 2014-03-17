@@ -19,7 +19,7 @@ class Animal(object):
 		self.lifespan = ''
 		self.habitat = ''
 		self.geolocation = ''
-		self.sound = ''
+		self.__sound = ''
 
 		@property
 		def sound(self):
