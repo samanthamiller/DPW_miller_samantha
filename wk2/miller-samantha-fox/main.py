@@ -48,6 +48,8 @@ class MainHandler(webapp2.RequestHandler):
         monkey.habitat = 'Grassland'
         monkey.geolocation = 'Ethiopia'
 
+        # Array to populate animal information
+        animals = [lion, kangaroo, monkey]
         self.response.write(details.header + details.body + details.footer)
 
 class Animal(object):
