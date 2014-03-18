@@ -13,6 +13,7 @@ class MainHandler(webapp2.RequestHandler):
 		# Instantiate the Lion subclass
 		lion = Lion()
 		# Assign information to attributes passed down from Lion's superclass Animal
+		lion.name = 'Lion'
 		lion.phylum = 'Chordata'
 		lion.animal_class = 'Mammalia'
 		lion.order = 'Carnivora'
@@ -27,6 +28,7 @@ class MainHandler(webapp2.RequestHandler):
 		# Instantiate the Kangaroo subclass
 		kangaroo = Kangaroo()
 		# Assign information to attributes passed down from Kangaroo's superclass Animal
+		kangaroo.name = 'Kangaroo'
 		kangaroo.phylum = 'Chordata'
 		kangaroo.animal_class = 'Mammalia'
 		kangaroo.order = 'Diprotodontia'
@@ -40,6 +42,7 @@ class MainHandler(webapp2.RequestHandler):
 
 		# Instantiate the PatasMonkey subclass
 		monkey = PatasMonkey()
+		monkey.name = 'Patas Monkey'
 		monkey.phylum = 'Chordata'
 		monkey.animal_class = 'Mammalia'
 		monkey.order = 'Primates'
@@ -71,6 +74,7 @@ class MainHandler(webapp2.RequestHandler):
 			<li>Habitat: {obj.habitat}</li>
 			<li>Geolocation: {obj.geolocation}</li>
 		</ul>
+		<p>What does the {obj.name} say? <br> {obj.sound}</p>
 		'''
 		# Format method for big strings
 		result = result.format(**locals())
@@ -79,6 +83,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class Animal(object):
 	def __init__(self):
+		self.name = ''
 		self.phylum = ''
 		self.animal_class = ''
 		self.order = ''
