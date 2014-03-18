@@ -63,18 +63,25 @@ class MainHandler(webapp2.RequestHandler):
 
 	def html(self,obj):
 		result = '''
-		<ul>
-			<li>Phylum: {obj.phylum}</li>
-			<li>Class: {obj.animal_class}</li>
-			<li>Order: {obj.order}</li>
-			<li>Family: {obj.family}</li>
-			<li>Genus: {obj.genus}</li>
-			<li>Image: <img src="{obj.image}" height="150" width="200"/></li>
-			<li>Lifespan: {obj.lifespan}</li>
-			<li>Habitat: {obj.habitat}</li>
-			<li>Geolocation: {obj.geolocation}</li>
-		</ul>
-		<p>What does the {obj.name} say? <br> {obj.sound}</p>
+		<div class='container sixteen columns'>
+			<div id='imgResult' class='ten columns'>
+			<img src="{obj.image}" height="350" width="500"/>
+			</div>
+			<div id ='textResult' class='five columns'>
+			<h1></h1>
+			<ul>
+				<li>Phylum: {obj.phylum}</li>
+				<li>Class: {obj.animal_class}</li>
+				<li>Order: {obj.order}</li>
+				<li>Family: {obj.family}</li>
+				<li>Genus: {obj.genus}</li>
+				<li>Lifespan: {obj.lifespan}</li>
+				<li>Habitat: {obj.habitat}</li>
+				<li>Geolocation: {obj.geolocation}</li>
+			</ul>
+			<p>What does the {obj.name} say? <br> {obj.sound}</p>
+			</div>
+		</div>
 		'''
 		# Format method for big strings
 		result = result.format(**locals())

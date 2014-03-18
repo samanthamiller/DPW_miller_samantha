@@ -1,0 +1,33 @@
+img {
+	float: left;
+	border:1px solid;
+	border-radius:25px;
+	margin-top: 10px;
+}
+
+.container{
+	background-color: #C7832E;
+	border:1px solid #C7832E;
+	border-radius:25px;
+}
+
+#links{
+	text-align: center;
+	font-size: 20px;
+	border: none;
+	border-radius: 0;
+}
+
+#imgResult{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+#textResult{
+	margin-top: 20px;
+}
+
+form{
+	margin-top: 20px;
+}

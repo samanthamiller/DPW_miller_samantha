@@ -4,8 +4,12 @@ class Details(object):
 		<html>
 			<head>
 				<title>Animal Info</title>
+				<link rel='stylesheet' type='text/css' href='css/style.css'/>
+				<link rel='stylesheet' type='text/css' href='css/base.css'/>
+				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
+				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
 			</head>
-			<body>
+			<body> <div class='container'>
 		'''
 		self.body = ''' 
 		<form method='GET' name='animals' id='links'>
@@ -15,6 +19,7 @@ class Details(object):
 		</form>
 		'''
 		self.footer = ''' 
+		</div>
 		</body>
 		</html>'''
 
