@@ -2,7 +2,7 @@ import webapp2
 # We need this for requesting info from API
 import urllib2
 # Library for working with xml in python
-from xml.dom import minidom
+import  xml.etree.ElementTree as ET 
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
@@ -27,20 +27,13 @@ class MainHandler(webapp2.RequestHandler):
 			result = opener.open(request)
 
 			# Parse the result
-			xmldoc = minidom.parse(result)
-			self.response.write(xmldoc.getElementsByTagName('title')[2].firstChild.nodeValue)
+			xmldoc = ET.parse(result)
+			root = xmldoc.getroot()
+			self.response.write(root[0][0].text)
+			item = root[0].findall('item')
+			item.findall('yweather:forecast')
+			print list
 
-			content = '<br/>'
-			list = xmldoc.getElementsByTagName('yweather:forecast')
-			for l in list:
-				content += l.attributes['day'].value
-				content += "    HIGH: " + l.attributes['high'].value
-				content += "   	LOW: " + l.attributes['low'].value
-				content += "   	CONDITION: " + l.attributes['text'].value
-				# content += ' img src="http://l.yimg.com/a/i/us/we/52/' + l.attributes['code'].value + '.gif"/>'
-				content += ' <img src="images/' + l.attributes['code'].value + '.png" width="50"/>'
-				content += '<br/>'
-			self.response.write(content)
 
 class Page(object):
 	def __init__(self):
