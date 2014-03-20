@@ -3,48 +3,45 @@ import urllib2
 from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        page = FormPage()
-        page.inputs = {'alcoholType':'text', 'Submit':'submit'}
-        page.create_inputs()
-        self.response.write(page.print_out())
+	def get(self):
+		page = FormPage()
+		page.inputs = {'alcoholType':'text', 'Submit':'submit'}
+		page.create_inputs()
+		self.response.write(page.print_out())
 
-        if self.request.GET:
-            alcoholType = self.request.GET['alcoholType']
-            url = 'http://www.barnivore.com/search.xml?keyword='
+		if self.request.GET:
+			alcoholType = self.request.GET['alcoholType']
+			url = 'http://www.barnivore.com/search.xml?keyword='
 
-            request = urllib2.Request(url + alcoholType)
-            opener = urllib2.build_opener()
-            result = opener.open(request)
-            xmldoc = minidom.parse(result)
-            content = ''
+			request = urllib2.Request(url + alcoholType)
+			opener = urllib2.build_opener()
+			result = opener.open(request)
+			xmldoc = minidom.parse(result)
+			content = ''
 
-            companies = xmldoc.getElementsByTagName('company')
+			companies = xmldoc.getElementsByTagName('company')
 
-            for company in companies:
-                try:
-                    address = company.getElementsByTagName('address')
-                except: StandardError
-                    address = "No Address on File"
-                content += "<h3>" + company.getElementsByTagName('company-name')[0].firstChild.nodeValue + "</h3>"
-                content += "<h4>" + address + "</h4>"
-                content += "<br/>"
-            self.response.write(content)
+			for company in companies:
+				content += "<h3>" + company.getElementsByTagName('company-name')[0].firstChild.nodeValue + "</h3>"
+				content += "<br/>"
+			self.response.write(content)
+
+
 
 class Page(object):
-    def __init__(self):
-        self._head = '''  <!DOCTYPE HTML>
-        <html>
-            <head>
-                <title>Vegan Alcohol Guide</title>
-            </head>
-            <body>
-        '''
-        self._body = ''' '''
-        self._footer = '''
-            </body>
-            </html>
-            '''
+	def __init__(self):
+		self._head = '''  <!DOCTYPE HTML>
+		<html>
+			<head>
+				<title>Vegan Alcohol Guide</title>
+			</head>
+			<body>	
+		'''
+		self._body = ''' '''
+		self._footer = ''' 
+			</body>
+		</html>
+		'''
 		@property 
 		def body(self):
 			pass
