@@ -1,52 +1,60 @@
 import webapp2
 # We need this for requesting info from API
 import urllib2
-# Import JSON
-import json
+# Library for working with xml in python
+from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		page = FormPage()
-		page.inputs = {'loc':'text', 'Submit':'submit'}
+		page.inputs = {'zip':'text', 'Submit':'submit'}
 		page.create_inputs()
 		self.response.write(page.print_out())
 
 		# If there is info in the url
 		if self.request.GET:
 			# Lets get that information in the url
-			loc = self.request.GET['loc']
-			url = 'http://api.openweathermap.org/data/2.5/weather?q='
+			zip = self.request.GET['zip']
 
-			# Assemble request
-			request = urllib2.Request(url + loc)
+			wm = WeatherModel(zip) # Sends zip to model
+			wm.send()
 
-			# Use urllib2, to create an object to get the url
-			opener = urllib2.build_opener()
 
-			# Use url to get a result - request info from api
-			result = opener.open(request)
 
-			print 'I am printint stuff right here '
-			# Parse the result
-			json_doc = json.load(result)
-			print json_doc
-			self.response.write(json_doc['coord']['lat'])
+class WeatherModel(object):
+	def __init__(self, zip):
+		self.__url = 'http://xml.weather.yahoo.com/forecastrss?p='
+		self.__request = urllib2.Request(self.__url + zip)
+		self.__opener = urllib2.build_opener()
 
-			# Parse the result
-			# xmldoc = minidom.parse(result)
-			# self.response.write(xmldoc.getElementsByTagName('title')[2].firstChild.nodeValue)
+	def send(self):
+		self.__result = self.__opener.open(self.__request)
+		self.sort() # Call the method that sorts the xml doc
 
-			# content = '<br/>'
-			# list = xmldoc.getElementsByTagName('yweather:forecast')
-			# for l in list:
-			# 	content += l.attributes['day'].value
-			# 	content += "    HIGH: " + l.attributes['high'].value
-			# 	content += "   	LOW: " + l.attributes['low'].value
-			# 	content += "   	CONDITION: " + l.attributes['text'].value
-			# 	# content += ' img src="http://l.yimg.com/a/i/us/we/52/' + l.attributes['code'].value + '.gif"/>'
-			# 	content += ' <img src="images/' + l.attributes['code'].value + '.png" width="50"/>'
-			# 	content += '<br/>'
-			# self.response.write(content)
+	def sort(self):
+		print 'Sort function ran'
+		self.__xmldoc = minidom.parse(self.__result)
+		self.__do = WeatherData()
+		self.__do.title = self.__xmldoc.getElementsByTagName('title')[2].firstChild.nodeValue
+		list = self.__xmldoc.getElementsByTagName('yweather:forecast')
+		for l in list:
+			print l.attributes['day'].value
+			self.__do.code = l.attributes['code'].value
+			self.__do.day = l.attributes['day'].value
+			self.__do.high = l.attributes['high'].value
+			self.__do.low = l.attributes['low'].value
+			self.__do.condition = l.attributes['text'].value
+
+
+class WeatherData(object):
+	def __init__(self):
+		# Data objects are public
+		self.title = ''
+		self.day = ''
+		self.high = ''
+		self.low = ''
+		self.code = ''
+		self.condition = ''
 
 class Page(object):
 	def __init__(self):
