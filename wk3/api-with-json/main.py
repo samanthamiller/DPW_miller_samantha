@@ -2,7 +2,7 @@ import webapp2
 # We need this for requesting info from API
 import urllib2
 # Library for working with xml in python
-import  xml.etree.ElementTree as ET 
+from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
@@ -26,16 +26,21 @@ class MainHandler(webapp2.RequestHandler):
 			# Use url to get a result - request info from api
 			result = opener.open(request)
 
-			namespace = 'http://xml.weather.yahoo.com/ns/rss/1.0'
-
 			# Parse the result
-			xmldoc = ET.parse(result)
-			root = xmldoc.getroot()
-			content = '<br/>'
-			for i in root.iter('{' +namespace+ '}forecast'):
-				content += i.attrib['day'] + "--high:" +i.attrib['high']
-				content += '<br/>'
+			xmldoc = minidom.parse(result)
+			self.response.write(xmldoc.getElementsByTagName('title')[2].firstChild.nodeValue)
 
+			content = '<br/>'
+			list = xmldoc.getElementsByTagName('yweather:forecast')
+			for l in list:
+				content += l.attributes['day'].value
+				content += "    HIGH: " + l.attributes['high'].value
+				content += "   	LOW: " + l.attributes['low'].value
+				content += "   	CONDITION: " + l.attributes['text'].value
+				# content += ' img src="http://l.yimg.com/a/i/us/we/52/' + l.attributes['code'].value + '.gif"/>'
+				content += ' <img src="images/' + l.attributes['code'].value + '.png" width="50"/>'
+				content += '<br/>'
+			self.response.write(content)
 
 class Page(object):
 	def __init__(self):
