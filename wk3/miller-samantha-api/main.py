@@ -25,13 +25,18 @@ class MainHandler(webapp2.RequestHandler):
 			request = urllib2.Reqest(url + ingredient)
 			# Use urllib2 to create an object to get the url
 			opener = urllib2.build_opener()
+			# Use url to populate a result - request information from the api
+			result = opener.open(request)
+
+			# Parse the json result
+			json_result = json.load(result)
 
 class Page(object):
 	def __init__(self):
 		self._head = '''  <!DOCTYPE HTML>
 		<html>
 			<head>
-				<title>Weather App - Yahoo API</title>
+				<title>Recipe finder</title>
 			</head>
 			<body>	
 		'''
@@ -63,7 +68,6 @@ class FormPage(Page):
 
 	def create_inputs(self):
 		for key, value in self.__inputs.iteritems():
-			print key
 			self.__input_string += '<input type="' + value+ '"name="' +key+'"/>'
 	def print_out(self):
 		return self._head + self.__form_open + self.__input_string + self.__form_close + self._footer
