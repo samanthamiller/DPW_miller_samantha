@@ -5,7 +5,8 @@ class MainHandler(webapp2.RequestHandler):
 
 class Shoes(object):
 	def __init__(self):
-		pass
+		self.color = ''
+		self._size = ''
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
