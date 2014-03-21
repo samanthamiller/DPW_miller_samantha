@@ -28,6 +28,12 @@ class Heels(Shoes):
 	def heel_height(self):
 		return self.heel_size
 
+class Sneakers(Shoes):
+	def __init__(self):
+		super(Sneakers, self).__init__()
+		self.athletic_type = ''
+		self.grip_level = ''
+
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
