@@ -9,9 +9,18 @@ class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		# Instanciate FormPage
 		page = FormPage()
-		page.inputs = {'ingredient':'text', 'Submit': 'submit'}
+		# Create form input feild and submit button
+		page.inputs = {'ingredient':'text', 'Search': 'submit'}
+		# Run classes create_inputs method
 		page.create_inputs()
+		# Put input feilds into html and populate
 		self.response.write(page.print_out())
+
+		# If there is information on the url
+		if self.request.GET:
+			# Get the information in the url
+			ingredient = self.request.GET['ingredient']
+			url = 'http://www.recipepuppy.com/api/?q='
 
 class Page(object):
 	def __init__(self):
@@ -47,8 +56,6 @@ class FormPage(Page):
 		self.__form_close = '</form>'
 		self.__inputs = dict()
 		self.__input_string = ''
-
-		#{'first_name': 'text', 'last_name': 'text'}
 
 	def create_inputs(self):
 		for key, value in self.__inputs.iteritems():
