@@ -7,7 +7,11 @@ import json
 class MainHandler(webapp2.RequestHandler):
 	''' This is the main controller for my recipe search application '''
 	def get(self):
-		pass
+		# Instanciate FormPage
+		page = FormPage()
+		page.inputs = {'ingredient':'text', 'Submit': 'submit'}
+		page.create_inputs()
+		self.response.write(page.print_out())
 
 class Page(object):
 	def __init__(self):
