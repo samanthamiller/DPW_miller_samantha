@@ -5,13 +5,23 @@ class MainHandler(webapp2.RequestHandler):
 		# Instantiate shoes class
 		shoes = Shoes()
 
+		# Instantiate heels subclass 
 		heels = Heels()
 		heels.brand = 'Derion '
 		heels.color = 'Brown '
-		heels.size = '7 '
-		heels.heel_size = '6 '
+		heels._size = '7 '
+		heels.heel_size = '6 inch '
 		heels.type = 'Boot '
 		heels.printInfo()
+
+		# Instantiate sneakers subclass
+		sneakers = Sneakers()
+		sneakers.brand = 'Nike '
+		sneakers.color = 'White '
+		sneakers._size = '7 '
+		sneakers.athletic_type = 'Basketball '
+		sneakers.grip_level = 'Medium '
+		sneakers.printInfo()
 
 class Shoes(object):
 	def __init__(self):
@@ -44,7 +54,7 @@ class Heels(Shoes):
 		return self.heel_size
 
 	def printInfo(self):
-		print self.brand + self.color + self.heel_size + self.type
+		print self.brand + self._size + self.color + self.heel_size + self.type
 
 class Sneakers(Shoes):
 	def __init__(self):
@@ -57,7 +67,7 @@ class Sneakers(Shoes):
 		return self.athletic_type
 
 	def printInfo(self):
-		print self.brand + self.color + self.athletic_type + self.grip_level
+		print self.brand + self._size + self.color + self.athletic_type + self.grip_level
 
 
 app = webapp2.WSGIApplication([
