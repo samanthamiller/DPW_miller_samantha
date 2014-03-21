@@ -23,6 +23,8 @@ class MainHandler(webapp2.RequestHandler):
 			url = 'http://www.recipepuppy.com/api/?q='
 			# Assemble request
 			request = urllib2.Reqest(url + ingredient)
+			# Use urllib2 to create an object to get the url
+			opener = urllib2.build_opener()
 
 class Page(object):
 	def __init__(self):
