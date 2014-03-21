@@ -22,14 +22,26 @@ class MainHandler(webapp2.RequestHandler):
 			ingredient = self.request.GET['ingredient']
 			url = 'http://www.recipepuppy.com/api/?q='
 			# Assemble request
-			request = urllib2.Reqest(url + ingredient)
+			request = urllib2.Request(url + ingredient)
 			# Use urllib2 to create an object to get the url
 			opener = urllib2.build_opener()
 			# Use url to populate a result - request information from the api
 			result = opener.open(request)
 
 			# Parse the json result
-			json_result = json.load(result)
+			json_data = json.load(result)
+			content = '<br/>'
+
+			for i in json_data['results']:
+				content += i['title']
+				content += '<br/>'
+				content +=  i['ingredients']
+				content += '<br/>'
+				content += "<a href=" + i['href'] + "> View Recipe </a>"
+				content += '<br/>'
+			self.response.write(content)
+
+
 
 class Page(object):
 	def __init__(self):
