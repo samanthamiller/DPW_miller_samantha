@@ -1,10 +1,12 @@
 import webapp2
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
+	def get(self):
+		pass
 
 class Shoes(object):
 	def __init__(self):
+		self.brand = ''
 		self.color = ''
 		self._size = ''
 
@@ -14,10 +16,19 @@ class Shoes(object):
 	def printSize(self):
 		print self.size
 
-class Wedges(Shoes):
+	def printBrand(self):
+		print self.brand
+
+class Heels(Shoes):
 	def __init__(self):
 		super(Wedges,self).__init__()
+		self.heel_size = ''
+		self.type = ''
+	@property
+	def heel_height(self):
+		return self.heel_size
+
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+	('/', MainHandler)
 ], debug=True)
