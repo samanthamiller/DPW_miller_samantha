@@ -21,6 +21,8 @@ class MainHandler(webapp2.RequestHandler):
 			# Get the information in the url
 			ingredient = self.request.GET['ingredient']
 			url = 'http://www.recipepuppy.com/api/?q='
+			# Assemble request
+			request = urllib2.Reqest(url + ingredient)
 
 class Page(object):
 	def __init__(self):
