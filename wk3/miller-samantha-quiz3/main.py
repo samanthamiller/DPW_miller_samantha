@@ -8,6 +8,16 @@ class Shoes(object):
 		self.color = ''
 		self._size = ''
 
+	def printColor(self):
+		print self.color
+
+	def printSize(self):
+		print self.size
+
+class Wedges(Shoes):
+	def __init__(self):
+		super(Wedges,self).__init__()
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
 ], debug=True)
