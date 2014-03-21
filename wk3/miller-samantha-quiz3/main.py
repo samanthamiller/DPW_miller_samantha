@@ -10,14 +10,16 @@ class Shoes(object):
 		self.color = ''
 		self._size = ''
 
-	def printColor(self):
-		print self.color
+	@property
+	def shoeBrand(self):
+		return self._size
 
 	def printSize(self):
 		print self.size
 
-	def printBrand(self):
-		print self.brand
+	def printInfo(self):
+		print self.brand + self.color
+
 
 class Heels(Shoes):
 	def __init__(self):
@@ -33,6 +35,10 @@ class Sneakers(Shoes):
 		super(Sneakers, self).__init__()
 		self.athletic_type = ''
 		self.grip_level = ''
+
+	@property
+	def sport(self):
+		return self.athletic_type
 
 
 app = webapp2.WSGIApplication([
