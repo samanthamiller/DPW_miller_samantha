@@ -33,12 +33,14 @@ class MainHandler(webapp2.RequestHandler):
 			content = '<br/>'
 
 			for i in json_data['results']:
+				content += '<br/>'
+				content += "<img src=" + i['thumbnail'] + "/>"
+				content += '<br/>'
 				content += i['title']
 				content += '<br/>'
-				content +=  i['ingredients']
+				content +=  '<p>Ingredients: ' + i['ingredients']
 				content += '<br/>'
 				content += "<a href=" + i['href'] + "> View Recipe </a>"
-				content += '<br/>'
 			self.response.write(content)
 
 
@@ -49,6 +51,9 @@ class Page(object):
 		<html>
 			<head>
 				<title>Recipe finder</title>
+				<link rel='stylesheet' type='text/css' href='css/base.css'/>
+				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
+				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
 			</head>
 			<body>	
 		'''
