@@ -33,14 +33,16 @@ class MainHandler(webapp2.RequestHandler):
 			content = '<br/>'
 
 			for i in json_data['results']:
+				content += "<div class='container sixteen columns'"
 				content += '<br/>'
 				content += "<img src=" + i['thumbnail'] + "/>"
 				content += '<br/>'
-				content += i['title']
+				content += '<p>' + i['title'] + '</p>'
 				content += '<br/>'
-				content +=  '<p>Ingredients: ' + i['ingredients']
+				content +=  '<p>Ingredients: ' + i['ingredients'] + '</p>'
 				content += '<br/>'
 				content += "<a href=" + i['href'] + "> View Recipe </a>"
+				content += '</div>'
 			self.response.write(content)
 
 
@@ -78,8 +80,8 @@ class FormPage(Page):
 	# Run the instantiating function for the Super Class
 	# Pass in the name of the subclass and self
 		super(FormPage, self).__init__()
-		self.__form_open = '<form method="GET">'
-		self.__form_close = '</form>'
+		self.__form_open = "<div class='container sixteen columns'> <form method='GET'>"
+		self.__form_close = '</form></div>'
 		self.__inputs = dict()
 		self.__input_string = ''
 
