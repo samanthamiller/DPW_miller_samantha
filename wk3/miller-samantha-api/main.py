@@ -19,7 +19,7 @@ class MainHandler(webapp2.RequestHandler):
 			rm = RecipeModel(ingredient)
 			rm.send()
 			rv = RecipeView()
-			rv.__populate = rw.__populate
+			rv.populate = rm.populate
 			self.response.write(rv.content)
 			
 
@@ -38,15 +38,15 @@ class RecipeModel(object):
 		self.__json_data = json.load(self.__result)
 		self.__populate = []
 
-		for i in __json_data['results']:
-			__populate = RecipeData()
-			__populate.title =  i['title']
-			__populate.ingredients =  i['ingredients'] 
-			__populate.href =  i['href'] 
+		for i in self.__json_data['results']:
+			self.__populate = RecipeData()
+			self.__populate.title =  i['title']
+			self.__populate.ingredients =  i['ingredients'] 
+			self.__populate.href =  i['href'] 
 
 	@property
-	def __populate(self):
-		return __populate
+	def populate(self):
+		return self.__populate
 
 class RecipeData(object):
 	def __init__(self):
