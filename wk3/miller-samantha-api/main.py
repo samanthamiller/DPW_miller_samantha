@@ -16,6 +16,11 @@ class MainHandler(webapp2.RequestHandler):
 		if self.request.GET:
 			# Get the information in the url
 			ingredient = self.request.GET['ingredient']
+			rm = RecipeModel(ingredient)
+			rm.send()
+			rv = RecipeView()
+			rv.__populate = rw.__populate
+			self.response.write(rv.content)
 			
 
 
@@ -30,7 +35,7 @@ class RecipeModel(object):
 		self.sort()
 
 	def sort(self):
-		self.__json_data = json.load(__result)
+		self.__json_data = json.load(self.__result)
 		self.__populate = []
 
 		for i in __json_data['results']:
@@ -39,6 +44,9 @@ class RecipeModel(object):
 			__populate.ingredients =  i['ingredients'] 
 			__populate.href =  i['href'] 
 
+	@property
+	def __populate(self):
+		return __populate
 
 class RecipeData(object):
 	def __init__(self):
@@ -51,16 +59,25 @@ class RecipeView(object):
 		self.__populate = RecipeData()
 
 	def upadate(self):
+		self.__content = "<div id='results' class='container sixteen columns'>"
+		self.__content += '<h3>' + self.__populate.title + '</h3>'
+		self.__content +=  '<p>Ingredients: ' + self.__populate.ingredients + '</p>'
+		self.__content += "<a href=" + self.__populate.href + "> View Recipe </a>"
+		self.__content += '</div>'
+		self.__content += '<br/>'
 
-		for i in __json_data['results']:
-			populate = RecipeData()
-			content += "<div id='results' class='container sixteen columns'>"
-			content += '<h3>' + i['title'] + '</h3>'
-			content +=  '<p>Ingredients: ' + i['ingredients'] + '</p>'
-			content += "<a href=" + i['href'] + "> View Recipe </a>"
-			content += '</div>'
-			content += '<br/>'
-		self.response.write(content)
+	@property
+	def populate(self):
+		return self.__populate
+
+	@populate.setter
+	def populate(self, new_populate):
+		self.__populate = new_populate
+		self.upadate()
+
+	@property
+	def content(self):
+		return self.__content
 
 
 class Page(object):
