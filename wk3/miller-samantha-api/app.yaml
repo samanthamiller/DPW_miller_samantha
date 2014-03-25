@@ -25,6 +25,10 @@ handlers:
   static_files: css/skeleton.css
   upload: css/skeleton\.css
 
+- url: /images/bg\.png
+  static_files: images/bg.png
+  upload: images/bg\.png
+
 - url: .*
   script: main.app
 

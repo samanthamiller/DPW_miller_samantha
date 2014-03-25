@@ -9,10 +9,6 @@ class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		# Instanciate FormPage
 		page = FormPage()
-		# Create form input feild and submit button
-		page.inputs = {'ingredient':'text', 'Search': 'submit'}
-		# Run classes create_inputs method
-		page.create_inputs()
 		# Put input feilds into html and populate
 		self.response.write(page.print_out())
 
@@ -20,31 +16,51 @@ class MainHandler(webapp2.RequestHandler):
 		if self.request.GET:
 			# Get the information in the url
 			ingredient = self.request.GET['ingredient']
-			url = 'http://www.recipepuppy.com/api/?q='
-			# Assemble request
-			request = urllib2.Request(url + ingredient)
-			# Use urllib2 to create an object to get the url
-			opener = urllib2.build_opener()
-			# Use url to populate a result - request information from the api
-			result = opener.open(request)
+			
 
-			# Parse the json result
-			json_data = json.load(result)
-			content = '<br/>'
 
-			for i in json_data['results']:
-				content += "<div class='container sixteen columns'"
-				content += '<br/>'
-				content += "<img src=" + i['thumbnail'] + "/>"
-				content += '<br/>'
-				content += '<p>' + i['title'] + '</p>'
-				content += '<br/>'
-				content +=  '<p>Ingredients: ' + i['ingredients'] + '</p>'
-				content += '<br/>'
-				content += "<a href=" + i['href'] + "> View Recipe </a>"
-				content += '</div>'
-			self.response.write(content)
+class RecipeModel(object):
+	def __init__(self, ingredient):
+		self.__url = 'http://www.recipepuppy.com/api/?q='
+		self.__request = urllib2.Request(self.__url + ingredient)
+		self.__opener = urllib2.build_opener()
 
+	def send(self):
+		self.__result = self.__opener.open(self.__request)
+		self.sort()
+
+	def sort(self):
+		self.__json_data = json.load(__result)
+		self.__populate = []
+
+		for i in __json_data['results']:
+			__populate = RecipeData()
+			__populate.title =  i['title']
+			__populate.ingredients =  i['ingredients'] 
+			__populate.href =  i['href'] 
+
+
+class RecipeData(object):
+	def __init__(self):
+		self.title = ''
+		self.ingredients = ''
+		self.href = ''
+
+class RecipeView(object):
+	def __init__(self):
+		self.__populate = RecipeData()
+
+	def upadate(self):
+
+		for i in __json_data['results']:
+			populate = RecipeData()
+			content += "<div id='results' class='container sixteen columns'>"
+			content += '<h3>' + i['title'] + '</h3>'
+			content +=  '<p>Ingredients: ' + i['ingredients'] + '</p>'
+			content += "<a href=" + i['href'] + "> View Recipe </a>"
+			content += '</div>'
+			content += '<br/>'
+		self.response.write(content)
 
 
 class Page(object):
@@ -56,6 +72,7 @@ class Page(object):
 				<link rel='stylesheet' type='text/css' href='css/base.css'/>
 				<link rel='stylesheet' type='text/css' href='css/layout.css'/>
 				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
+				<link rel='stylesheet' type='text/css' href='css/style.css'/>
 			</head>
 			<body>	
 		'''
@@ -80,24 +97,15 @@ class FormPage(Page):
 	# Run the instantiating function for the Super Class
 	# Pass in the name of the subclass and self
 		super(FormPage, self).__init__()
-		self.__form_open = "<div class='container sixteen columns'> <form method='GET'>"
-		self.__form_close = '</form></div>'
-		self.__inputs = dict()
-		self.__input_string = ''
+		self.__form_open = "<div id='searchForm' class='container sixteen columns'> <div class='fourteen columns'> <form method='GET'>"
+		self.__input = ''' <input type='text' placeholder='Ingredient' name='ingredient'>
+		<input type='submit' value='Search'>  '''
+		self.__form_close = '</form></div></div>'
 
-	def create_inputs(self):
-		for key, value in self.__inputs.iteritems():
-			self.__input_string += '<input type="' + value+ '"name="' +key+'"/>'
 	def print_out(self):
-		return self._head + self.__form_open + self.__input_string + self.__form_close + self._footer
+		return self._head + self.__form_open + self.__input + self.__form_close + self._footer
 
-	@property
-	def inputs(self):
-		pass
 
-	@inputs.setter
-	def inputs(self, dict):
-		self.__inputs = dict
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
