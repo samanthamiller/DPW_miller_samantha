@@ -19,16 +19,22 @@ class MainHandler(webapp2.RequestHandler):
 class TopModel(object):
 	''' This class requests, recives, validates and sorts the json data '''
 	def __init__(self):
-		print 'Model is running '
 		# Which api to pull from
 		self.__url = 'http://rebeccacarroll.com/api/music/music.json'
-		print 'Model is running '
 		# To assemble a request
 		self.__request = urllib2.Request(self.__url)
-		print 'Model is running '
 		# Create object to get the url
 		self.__opener = urllib2.build_opener()
-		print 'Model is running '
+
+		# Function to use the url and get a result and request information from the api
+		def send(self):
+				self.__result = self.__opener.open(self.request)
+				self.sort()
+
+		# Function to parse and sort information
+		def sort(self):
+			self.__json_data = json.load(self.__result)
+			self.__populate []
 
 
 class MainPage(object):
