@@ -33,8 +33,20 @@ class TopModel(object):
 
 		# Function to parse and sort information
 		def sort(self):
+			# Parsing the json results
 			self.__json_data = json.load(self.__result)
-			self.__populate []
+			# Empty array for the data objects to be appended to
+			self.__populate = []
+			# For loop to pull neccesary information from api
+			for i in self.__json_data['track']:
+				do = TopData()
+				do.title = i['title']
+				do.artist = i['artist']
+				do.length = i['length']
+				do.year = i['year']
+				do.label = i['label']
+				do.cover = i['cover']
+
 
 
 class MainPage(object):
