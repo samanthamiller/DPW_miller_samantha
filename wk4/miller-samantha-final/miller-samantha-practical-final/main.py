@@ -12,6 +12,25 @@ class MainHandler(webapp2.RequestHandler):
 		# Populating the basic html set up by calling a function that lives in the MainPage class
 		self.response.write(page.return_main_page())
 
+		model = TopModel()
+
+
+
+class TopModel(object):
+	''' This class requests, recives, validates and sorts the json data '''
+	def __init__(self):
+		print 'Model is running '
+		# Which api to pull from
+		self.__url = 'http://rebeccacarroll.com/api/music/music.json'
+		print 'Model is running '
+		# To assemble a request
+		self.__request = urllib2.Request(self.__url)
+		print 'Model is running '
+		# Create object to get the url
+		self.__opener = urllib2.build_opener()
+		print 'Model is running '
+
+
 class MainPage(object):
 	''' This class is going to handle basic html page elements '''
 	def __init__(self):
