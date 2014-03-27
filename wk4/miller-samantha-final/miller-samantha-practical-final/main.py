@@ -1,4 +1,8 @@
 import webapp2
+# Needed for getting json
+import urllib2
+# Needed for parsing json
+import json
 
 class MainHandler(webapp2.RequestHandler):
 	''' This is the mainhandler which controls what information is viewed '''
