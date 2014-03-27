@@ -6,6 +6,7 @@ import json
 
 class MainHandler(webapp2.RequestHandler):
 	''' This is the main controller for my recipe search application '''
+
 	def get(self):
 		# Instanciate of FormPage
 		page = FormPage()
@@ -26,11 +27,10 @@ class MainHandler(webapp2.RequestHandler):
 			rv.populate = rm.populate
 			# Populates search results to the screen
 			self.response.write(rv.content)
-			
-
 
 class RecipeModel(object):
 	'''  This model handles fetching, parsing and sorting data from the recipe api '''
+
 	def __init__(self, ingredient):
 		# url location of the api i'm pulling from
 		self.__url = 'http://www.recipepuppy.com/api/?q='
