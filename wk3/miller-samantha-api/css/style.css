@@ -2,8 +2,23 @@ body{
 	background-color: #392312;
 }
 
+#header{
+	background-color: #392312;
+}
+
 .container{
 	background-color: #fff;
+}
+
+h1{
+	color: #fff;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+h4{
+	margin-left: 20px;
+
 }
 
 #searchForm{
@@ -12,6 +27,10 @@ body{
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
+}
+
+.container{
+	margin-top: 20px;
 }
 
 input[type="submit"]{
@@ -28,7 +47,7 @@ input[type="text"]{
 	margin-left: 150px;
 }
 
-#results{
+.results{
 	height: 100px;
 	padding-top: 20px;
 	-moz-border-radius: 10px;
@@ -36,14 +55,14 @@ input[type="text"]{
 	border-radius: 10px;
 }
 
-#results p{
+.results p{
 	margin-left: 20px;
 }
 
-#results h3{
+.results h3{
 	margin-left: 20px;
 }
 
-#results a{
+.results a{
 	margin-left: 20px;
 }

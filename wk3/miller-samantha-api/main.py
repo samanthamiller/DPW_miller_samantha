@@ -39,10 +39,11 @@ class RecipeModel(object):
 		self.__populate = []
 
 		for i in self.__json_data['results']:
-			self.__populate = RecipeData()
-			self.__populate.title =  i['title']
-			self.__populate.ingredients =  i['ingredients'] 
-			self.__populate.href =  i['href'] 
+			do = RecipeData()
+			do.title =  i['title']
+			do.ingredients =  i['ingredients'] 
+			do.href =  i['href']
+			self.__populate.append(do)
 
 	@property
 	def populate(self):
@@ -58,13 +59,15 @@ class RecipeView(object):
 	def __init__(self):
 		self.__populate = RecipeData()
 
-	def upadate(self):
-		self.__content = "<div id='results' class='container sixteen columns'>"
-		self.__content += '<h3>' + self.__populate.title + '</h3>'
-		self.__content +=  '<p>Ingredients: ' + self.__populate.ingredients + '</p>'
-		self.__content += "<a href=" + self.__populate.href + "> View Recipe </a>"
-		self.__content += '</div>'
-		self.__content += '<br/>'
+	def update(self, np):
+		self.__content = ''
+		for i in np:
+			self.__populate = i
+			self.__content += "<div class='container sixteen columns results'>"
+			self.__content += '<h4>' + i.title + '</h4>'
+			self.__content +=  '<p>Ingredients: ' + i.ingredients + '</p>'
+			self.__content += "<a href=" + i.href + "> View Recipe </a>"
+			self.__content += '</div>'
 
 	@property
 	def populate(self):
@@ -72,8 +75,8 @@ class RecipeView(object):
 
 	@populate.setter
 	def populate(self, new_populate):
-		self.__populate = new_populate
-		self.upadate()
+		# self.__populate = new_populate
+		self.update(new_populate)
 
 	@property
 	def content(self):
@@ -91,20 +94,16 @@ class Page(object):
 				<link rel='stylesheet' type='text/css' href='css/skeleton.css'/>
 				<link rel='stylesheet' type='text/css' href='css/style.css'/>
 			</head>
-			<body>	
+			<body>
+				<div id = 'header' class ='container'>
+					<h1>Pantry Raid</h1>
+				</div>
 		'''
 		self._body = ''' '''
 		self._footer = ''' 
 			</body>
 		</html>
 		'''
-		@property 
-		def body(self):
-			pass
-
-		@body.setter
-		def body(self, b):
-			self.body = b
 
 	def print_out(self):
 		return self._head + self._body + self._footer
