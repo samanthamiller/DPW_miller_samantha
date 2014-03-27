@@ -46,6 +46,25 @@ class TopModel(object):
 				do.year = i['year']
 				do.label = i['label']
 				do.cover = i['cover']
+				# Appending every tracks infromation to the empty __populate array
+				self.__populate.append(do)
+
+	# Returning populate so that it can be used
+	@property
+	def populate(self):
+		return self.__populate
+
+# Storing returned data from api
+class TopData(object):
+	''' This class stores data returned form the api '''
+	def __init__(self):
+		# Public
+		self.title = ''
+		self.artist = ''
+		self.length = ''
+		self.year = ''
+		self.label = ''
+		self.cover
 
 
 
