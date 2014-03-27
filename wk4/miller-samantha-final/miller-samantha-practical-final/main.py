@@ -13,6 +13,7 @@ class MainHandler(webapp2.RequestHandler):
 		self.response.write(page.return_main_page())
 
 		model = TopModel()
+		data = TopData()
 
 
 
@@ -64,8 +65,15 @@ class TopData(object):
 		self.length = ''
 		self.year = ''
 		self.label = ''
-		self.cover
+		self.cover = ''
 
+class TopView(object):
+	def __init__(self):
+		# Setting populate equal to the stored information of TopData
+		self.__populate = TopData()
+	def update(self, new_p):
+		# Variable to push content into
+		pass
 
 
 class MainPage(object):
