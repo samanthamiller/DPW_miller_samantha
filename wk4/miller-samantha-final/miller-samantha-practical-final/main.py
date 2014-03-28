@@ -12,6 +12,13 @@ class MainHandler(webapp2.RequestHandler):
 		# Populating the basic html set up by calling a function that lives in the MainPage class
 		self.response.write(page.return_main_page())
 
+		if self.request.GET:
+			tm = TopModel()
+			tm.send()
+			tv = TopView()
+			tv.do = tm.do
+			self.response.write(cv.content)
+
 
 
 
@@ -82,14 +89,17 @@ class TopView(object):
 			self.__content += '<p>'+i.label+'</p>'
 			self.__content += '<p>'+i.cover+'</p>'
 
+	# Returing information through getter
 	@property
 	def populate(self):
 		return self.__populate
 
+	# Using setter to set new values
 	@populate.setter
 	def populate(self, new_populate):
 		self.update(new_populate)
 
+	# Returning information through getter
 	@property
 	def content(self):
 		return self.__content
