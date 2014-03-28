@@ -35,8 +35,8 @@ class TopModel(object):
 
 	# Function to use the url and get a result and request information from the api
 	def send(self):
-			self.__result = self.__opener.open(self.request)
-			self.sort()
+		self.__result = self.__opener.open(self.__request)
+		self.sort()
 
 	# Function to parse and sort information
 	def sort(self):
@@ -45,7 +45,7 @@ class TopModel(object):
 		# Empty array for the data objects to be appended to
 		self.__populate = []
 		# For loop to pull neccesary information from api
-		for i in self.__json_data['track']:
+		for i in self.__json_data['songs']:
 			do = TopData()
 			do.title = i['title']
 			do.artist = i['artist']
