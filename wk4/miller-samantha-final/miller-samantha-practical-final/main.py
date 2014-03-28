@@ -74,6 +74,7 @@ class TopData(object):
 		self.cover = ''
 
 class TopView(object):
+	''' This controles the view '''
 	def __init__(self):
 		# Setting populate equal to the stored information of TopData
 		self.__populate = TopData()
