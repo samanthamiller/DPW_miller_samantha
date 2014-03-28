@@ -17,7 +17,7 @@ class MainHandler(webapp2.RequestHandler):
 		tm = TopModel()
 		tm.send()
 		tv = TopView()
-		tv.do = tm.do
+		# tv.do = tm.do
 		self.response.write(tv.content)
 
 
