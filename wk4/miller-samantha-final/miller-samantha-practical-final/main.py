@@ -1,106 +1,99 @@
 import webapp2
-# Needed for getting xml data
+# Neet to read xml data
 import urllib2
-# Needed for parsing xml
+# Need to parse xml
 from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
-	''' This is the mainhandler which controls what information is viewed '''
+	''' This class controles how the model and view interact '''
 	def get(self):
-		# Instantiating the class MainPage()
+		# Instantiate the class MainPage
 		page = MainPage()
-		# Populating the basic html set up by calling a function that lives in the MainPage class
+		# Put html elements on the page
 		self.response.write(page.return_main_page())
-
-
-
-
-
+		# Instantiate Model 
+		tm = TopModel()
+		# Instantiate View and pass it data object
+		tv = TopView(tm.music_data)
+		# Print content 
+		self.response.write(tv.content)
 
 class TopModel(object):
-	''' This class requests, recives, validates and sorts the json data '''
+	''' This class handels requesting, recieving, validating and sorting data '''
 	def __init__(self):
-		# Which api to pull from
+		# Gets the api
 		self.__url = 'http://rebeccacarroll.com/api/music/music.xml'
-		# To assemble a request
+		# Request's informatino from api
 		self.__request = urllib2.Request(self.__url)
-		# Create object to get the url
 		self.__opener = urllib2.build_opener()
-		# Run send function
-		self.send()
+		# Call send function
+		self.send_data()
 
-	# Function to use the url and get a result and request information from the api
-	def send(self):
+	# Function to send information
+	def send_data(self):
 		self.__result = self.__opener.open(self.__request)
+		# Call sort function
 		self.sort()
 
-	# Function to parse and sort information
+	# Function that parses xml data and collects information
 	def sort(self):
-		# Parsing the json results
-		self.__json_data = json.load(self.__result)
-		# Empty array for the data objects to be appended to
-		self.__populate = []
-		# For loop to pull neccesary information from api
-		for i in self.__json_data['songs']:
-			do = TopData()
-			do.title = i['title']
-			do.artist = i['artist']
-			do.length = i['length']
-			do.year = i['year']
-			do.label = i['label']
-			do.cover = i['cover']
-			# Appending every tracks infromation to the empty __populate array
-			self.__populate.append(do)
+		# Parsing xml data
+		self.__xmldoc = minidom.parse(self.__result)
+		# Setting music data equal to the class TopData
+		self.__music_data = TopData()
 
-	# Returning populate so that it can be used
+		# Getting the track array
+		music = self.__xmldoc.getElementsByTagName('track')
+
+		# Looping thorugh music which is the track array
+		for i in music:
+			# Create a dictionary 
+			music_dict = dict()
+			# Get all of this information from the api
+			title = i.getElementsByTagName('title')[0].firstChild.nodeValue
+			artist = i.getElementsByTagName('artist')[0].firstChild.nodeValue
+			length = i.getElementsByTagName('length')[0].firstChild.nodeValue
+			year = i.getElementsByTagName('year')[0].firstChild.nodeValue
+			label = i.getElementsByTagName('label')[0].firstChild.nodeValue
+			cover = i.getElementsByTagName('cover')[0].firstChild.nodeValue
+			# Adding elements found to dictionary 
+			music_dict = [title, artist, length, year,label,cover]
+			# Append the dictionary objects to musoc data
+			self.__music_data.music.append(music_dict)
+
+	# Return music data
 	@property
-	def populate(self):
-		return self.__populate
+	def music_data(self):
+		return self.__music_data
 
-# Storing returned data from api
+
 class TopData(object):
-	''' This class stores data returned form the api '''
+	''' This class holds an array of the tracks data'''
 	def __init__(self):
-		# Public
-		self.title = ''
-		self.artist = ''
-		self.length = ''
-		self.year = ''
-		self.label = ''
-		self.cover = ''
+		self.music = []
 
 class TopView(object):
-	''' This controles the view '''
-	def __init__(self):
-		# Setting populate equal to the stored information of TopData
-		self.__populate = TopData()
-	def update(self, new_p):
-		# Variable to push content into
-		self.__content = ''
-		# Loop to populate each top's info
-		for i in new_p:
-			self.__populate = i
-			self.__content += '<p>'+i.title+'</p>'
-			self.__content += '<p>'+i.artist+'</p>'
-			self.__content += '<p>'+i.length+'</p>'
-			self.__content += '<p>'+i.year+'</p>'
-			self.__content += '<p>'+i.label+'</p>'
-			self.__content += '<p>'+i.cover+'</p>'
+	''' The view of what will be shown in the html '''
+	def __init__(self, music_data):
+		# Open a variable for informatino to be pushed into
+		self.__content = ' '
+		# Loop through music data
+		for i in music_data.music:
+			self.__content += "<a href='?music='>"+i[0]+"</a>"
+			self.__content += "<br/>"
+			self.__content += '<p> Artist: ' +i[1]+ '</p>'
+			self.__content += '<p> Song Length: ' +i[2]+ '</p>'
+			self.__content += '<p> Year Released: ' +i[3]+ '</p>'
+			self.__content += '<p> Record Label: ' +i[4]+ '</p>'
+			self.__content += "<img src='"+i[5]+ "'>"
 
-	# Returing information through getter
-	@property
-	def populate(self):
-		return self.__populate
+			print i[0]
 
-	# Using setter to set new values
-	@populate.setter
-	def populate(self, new_populate):
-		self.update(new_populate)
-
-	# Returning information through getter
 	@property
 	def content(self):
 		return self.__content
+
+
 
 
 class MainPage(object):
@@ -124,7 +117,6 @@ class MainPage(object):
 	# Function to return the attributes _head, _body and _footer which create the thml
 	def return_main_page(self):
 		return self._head + self._body + self._footer
-
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
