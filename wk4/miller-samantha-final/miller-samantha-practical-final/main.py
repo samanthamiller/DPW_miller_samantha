@@ -14,6 +14,7 @@ class MainHandler(webapp2.RequestHandler):
 
 		model = TopModel()
 		data = TopData()
+		view = TopView()
 
 
 
@@ -73,7 +74,16 @@ class TopView(object):
 		self.__populate = TopData()
 	def update(self, new_p):
 		# Variable to push content into
-		pass
+		self.__content = ''
+		# Loop to populate each top's info
+		for i in new_p:
+			self.__populate = i
+			self.__content += '<p>'+i.title+'</p>'
+			self.__content += '<p>'+i.artist+'</p>'
+			self.__content += '<p>'+i.length+'</p>'
+			self.__content += '<p>'+i.year+'</p>'
+			self.__content += '<p>'+i.label+'</p>'
+			self.__content += '<p>'+i.cover+'</p>'
 
 
 class MainPage(object):
