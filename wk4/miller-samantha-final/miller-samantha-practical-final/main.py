@@ -1,8 +1,8 @@
 import webapp2
-# Needed for getting json
+# Needed for getting xml data
 import urllib2
-# Needed for parsing json
-import json
+# Needed for parsing xml
+from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
 	''' This is the mainhandler which controls what information is viewed '''
@@ -12,13 +12,7 @@ class MainHandler(webapp2.RequestHandler):
 		# Populating the basic html set up by calling a function that lives in the MainPage class
 		self.response.write(page.return_main_page())
 
-		if self.request.GET:
-		 	print 'If statment is being ran'
-			tm = TopModel()
-			tm.send()
-			tv = TopView()
-			tv.do = tm.do
-			self.response.write(tv.content)
+
 
 
 
