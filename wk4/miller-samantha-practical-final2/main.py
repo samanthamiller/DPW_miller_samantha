@@ -42,6 +42,14 @@ class TopData(object):
 		self.music = []
 
 class TopView(object):
+	def __init__(self, music_data):
+		self.__content = ' '
+		for i in music_data.music:
+			self.__content += "<button href='?song=0'>"+music[0]+"</button>"
+	@property
+	def content(self):
+		return self.__content
+
 
 
 
