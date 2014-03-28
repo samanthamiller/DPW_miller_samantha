@@ -50,14 +50,14 @@ class TopModel(object):
 			# Create a dictionary 
 			music_dict = dict()
 			# Get all of this information from the api
+			cover = i.getElementsByTagName('cover')[0].firstChild.nodeValue
 			title = i.getElementsByTagName('title')[0].firstChild.nodeValue
 			artist = i.getElementsByTagName('artist')[0].firstChild.nodeValue
 			length = i.getElementsByTagName('length')[0].firstChild.nodeValue
 			year = i.getElementsByTagName('year')[0].firstChild.nodeValue
 			label = i.getElementsByTagName('label')[0].firstChild.nodeValue
-			cover = i.getElementsByTagName('cover')[0].firstChild.nodeValue
 			# Adding elements found to dictionary 
-			music_dict = [title, artist, length, year,label,cover]
+			music_dict = [cover,title, artist, length, year,label]
 			# Append the dictionary objects to musoc data
 			self.__music_data.music.append(music_dict)
 
@@ -79,13 +79,14 @@ class TopView(object):
 		self.__content = ' '
 		# Loop through music data
 		for i in music_data.music:
-			self.__content += "<a href='?music='>"+i[0]+"</a>"
+			self.__content += "<img src='"+i[0]+ "'>"
+			self.__content += '<br/>'
+			self.__content += "<a href='?music='>"+i[1]+"</a>"
 			self.__content += "<br/>"
-			self.__content += '<p> Artist: ' +i[1]+ '</p>'
-			self.__content += '<p> Song Length: ' +i[2]+ '</p>'
-			self.__content += '<p> Year Released: ' +i[3]+ '</p>'
-			self.__content += '<p> Record Label: ' +i[4]+ '</p>'
-			self.__content += "<img src='"+i[5]+ "'>"
+			self.__content += '<p> Artist: ' +i[2]+ '</p>'
+			self.__content += '<p> Song Length: ' +i[3]+ '</p>'
+			self.__content += '<p> Year Released: ' +i[4]+ '</p>'
+			self.__content += '<p> Record Label: ' +i[5]+ '</p>'
 
 			print i[0]
 
