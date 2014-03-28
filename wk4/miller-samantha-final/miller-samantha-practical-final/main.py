@@ -12,12 +12,13 @@ class MainHandler(webapp2.RequestHandler):
 		# Populating the basic html set up by calling a function that lives in the MainPage class
 		self.response.write(page.return_main_page())
 
-		if self.request.GET:
-			tm = TopModel()
-			tm.send()
-			tv = TopView()
-			tv.do = tm.do
-			self.response.write(cv.content)
+		# if self.request.GET:
+		# 	print 'If statment is being ran'
+		tm = TopModel()
+		tm.send()
+		tv = TopView()
+		tv.do = tm.do
+		self.response.write(tv.content)
 
 
 
@@ -32,28 +33,28 @@ class TopModel(object):
 		# Create object to get the url
 		self.__opener = urllib2.build_opener()
 
-		# Function to use the url and get a result and request information from the api
-		def send(self):
-				self.__result = self.__opener.open(self.request)
-				self.sort()
+	# Function to use the url and get a result and request information from the api
+	def send(self):
+			self.__result = self.__opener.open(self.request)
+			self.sort()
 
-		# Function to parse and sort information
-		def sort(self):
-			# Parsing the json results
-			self.__json_data = json.load(self.__result)
-			# Empty array for the data objects to be appended to
-			self.__populate = []
-			# For loop to pull neccesary information from api
-			for i in self.__json_data['track']:
-				do = TopData()
-				do.title = i['title']
-				do.artist = i['artist']
-				do.length = i['length']
-				do.year = i['year']
-				do.label = i['label']
-				do.cover = i['cover']
-				# Appending every tracks infromation to the empty __populate array
-				self.__populate.append(do)
+	# Function to parse and sort information
+	def sort(self):
+		# Parsing the json results
+		self.__json_data = json.load(self.__result)
+		# Empty array for the data objects to be appended to
+		self.__populate = []
+		# For loop to pull neccesary information from api
+		for i in self.__json_data['track']:
+			do = TopData()
+			do.title = i['title']
+			do.artist = i['artist']
+			do.length = i['length']
+			do.year = i['year']
+			do.label = i['label']
+			do.cover = i['cover']
+			# Appending every tracks infromation to the empty __populate array
+			self.__populate.append(do)
 
 	# Returning populate so that it can be used
 	@property
