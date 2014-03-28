@@ -26,6 +26,8 @@ class TopModel(object):
 		self.__request = urllib2.Request(self.__url)
 		# Create object to get the url
 		self.__opener = urllib2.build_opener()
+		# Run send function
+		self.send()
 
 	# Function to use the url and get a result and request information from the api
 	def send(self):
