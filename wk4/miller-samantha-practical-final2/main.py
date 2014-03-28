@@ -8,6 +8,19 @@ class MainHandler(webapp2.RequestHandler):
 		page = MainPage()
 		self.response.write(page.return_main_page())
 
+class TopModel(object):
+	def __init__(self):
+		self.__url = 'http://rebeccacarroll.com/api/music/music.xml'
+		self.__request = urllib2.Requwst(self.__url)
+		self.__opener = urllib2.build_opener()
+		self.send()
+
+	def send(self):
+		self.__result = self.__opener.open(self.__request)
+		self.sort()
+
+	def sort(self):
+		self.__xmldoc = minidom.parse(self.__result)
 
 
 class MainPage(object):
