@@ -21,6 +21,28 @@ class TopModel(object):
 
 	def sort(self):
 		self.__xmldoc = minidom.parse(self.__result)
+		self.__music_data = TopData()
+
+		music = self.__xmldoc.getElementsByTagName('track')
+
+		for i in music:
+			music_dict = dict()
+
+			title = song.getElementsByTagName('title')[0].firstChild.nodeValue
+			artist = song.getElementsByTagName('artist')[0].firstChild.nodeValue
+			music_dict = [title, artist]
+
+			self.__data.music.append(music_dict)
+	@property
+	def music_data(self):
+		return self.__music_data
+
+class TopData(object):
+	def __init__(self):
+		self.music = []
+
+class TopView(object):
+
 
 
 class MainPage(object):
