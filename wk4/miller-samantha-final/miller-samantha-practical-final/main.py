@@ -21,7 +21,7 @@ class TopModel(object):
 	''' This class requests, recives, validates and sorts the json data '''
 	def __init__(self):
 		# Which api to pull from
-		self.__url = 'http://rebeccacarroll.com/api/music/music.json'
+		self.__url = 'http://rebeccacarroll.com/api/music/music.xml'
 		# To assemble a request
 		self.__request = urllib2.Request(self.__url)
 		# Create object to get the url
