@@ -12,13 +12,13 @@ class MainHandler(webapp2.RequestHandler):
 		# Populating the basic html set up by calling a function that lives in the MainPage class
 		self.response.write(page.return_main_page())
 
-		# if self.request.GET:
-		# 	print 'If statment is being ran'
-		tm = TopModel()
-		tm.send()
-		tv = TopView()
-		# tv.do = tm.do
-		self.response.write(tv.content)
+		if self.request.GET:
+		 	print 'If statment is being ran'
+			tm = TopModel()
+			tm.send()
+			tv = TopView()
+			tv.do = tm.do
+			self.response.write(tv.content)
 
 
 
